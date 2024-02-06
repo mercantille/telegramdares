@@ -115,7 +115,7 @@
       }
 
       .small {
-        width: 33vw !important;
+        width: 40vw !important;
         padding: 8px !important;
         border-radius: 4px;
         border-width: 1px;
@@ -145,7 +145,7 @@
       .date {
         margin-top: 8px;
         width: 33vw;
-        height: 24px;
+        height: 32px;
         border-radius: 4px;
         border-width: 1px;
         border-color: #000;
@@ -153,7 +153,8 @@
 
       select {
         margin-top: 8px;
-        width: 33vw;
+        height: 32px;
+        width: 20vw;
       }
 
       input[type="text"],
@@ -345,11 +346,20 @@
     <section id="top_sect" class="second">
       <div class="block">
         <span class="header">Title</span>
-        <input type="text" class="small" />
+        <input
+          type="text"
+          class="small"
+          id="title"
+          placeholder="What will you do?"
+        />
       </div>
       <div class="block">
         <span class="header">Description</span>
-        <input type="text" />
+        <input
+          type="text"
+          id="description"
+          placeholder="Describe in more detail"
+        />
       </div>
       <!-- <div id="peer_wrap" style="display: none">
         <img id="peer_photo" class="chat_img" src="" />
@@ -368,7 +378,7 @@
           class="date"
           type="date"
           placeholder="Input text in regular input..."
-          id="regular_field"
+          id="deadline"
         />
       </div>
       <div class="row">
@@ -378,12 +388,12 @@
             type="text"
             class="small"
             placeholder="Maximum total challenges"
-            id="regular_field"
+            id="challengelimit"
           />
         </div>
         <div class="block">
           <span class="header">Multiplier</span>
-          <select id="multiplier_sel">
+          <select id="multiplier">
             <option value="2x" selected>2x</option>
             <option value="3x">3x</option>
             <option value="4x">4x</option>
@@ -391,11 +401,11 @@
             <option value="4x">6x</option>
             <option value="4x">8x</option>
             <option value="4x">10x</option>
-            <option value="4x" id="bg_color_val">custom...</option>
+            <!-- <option value="4x" id="bg_color_val">custom...</option> -->
           </select>
         </div>
       </div>
-      <button id="main_btn" onclick="DemoApp.sendMessage('');">
+      <button id="main_btn" onclick="DemoApp.createDare();">
         Create new Dare
       </button>
       <!-- <button id="with_webview_btn" onclick="DemoApp.sendMessage('', true);">
@@ -622,9 +632,9 @@
           document.body.style.visibility = "";
           Telegram.WebApp.ready();
           Telegram.WebApp.MainButton.setParams({
-            text: "CLOSE WEBVIEW",
+            text: "Create new Dare",
             is_visible: true,
-          }).onClick(DemoApp.close);
+          }).onClick(DemoApp.createDare);
         },
         expand() {
           Telegram.WebApp.expand();
@@ -777,6 +787,40 @@
           }
         },
 
+        createDare() {
+          const title = document.getElementById("title").value;
+          const description = document.getElementById("description").value;
+          const deadline = document.getElementById("deadline").value;
+          const multiplier = document.getElementById("multiplier").value;
+          const challengelimit =
+            document.getElementById("challengelimit").value;
+          console.log(title);
+          console.log(description);
+          console.log(deadline);
+          console.log(challengelimit);
+          console.log(multiplier);
+          fetch(
+            "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create",
+            {
+              method: "POST",
+              body: JSON.stringify({
+                name: "Hello",
+                description: "Hello from Bot",
+                multiplier: 1,
+                completion_deadline: "2024-03-06T16:08:03.255Z",
+                maximum_bet: 10,
+                created_by: 1,
+              }),
+              headers: {
+                "Content-Type": "application/json-patch+json",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, POST",
+                "ngrok-skip-browser-warning": true,
+              },
+            }
+          );
+          console.log("tried");
+        },
         // Alerts
         showAlert(message) {
           Telegram.WebApp.showAlert(message);
@@ -935,19 +979,24 @@
           );
 
           const authData = DemoApp.initData || "";
-          fetch("/demo/api", {
-            method: "POST",
-            body: JSON.stringify(
-              Object.assign(data, {
-                _auth: authData,
-                method: method,
-              })
-            ),
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
+          fetch(
+            "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create",
+            {
+              method: "POST",
+              body: JSON.stringify({
+                name: "Hello",
+                description: "Hello from Bot",
+                multiplier: 1,
+                completion_deadline: "2024-03-06T16:08:03.255Z",
+                maximum_bet: 10,
+                created_by: 1,
+              }),
+              credentials: "include",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          )
             .then(function (response) {
               return response.json();
             })
@@ -1126,6 +1175,8 @@
 
       //   DemoApp.checkInitData();
       DemoApp.init();
+      var title = document.getElementById("title").value;
+      console.log(title);
 
       function setViewportData() {
         document
