@@ -794,7 +794,7 @@
           const multiplier = document.getElementById("multiplier").value;
           const challengelimit =
             document.getElementById("challengelimit").value;
-          const { first_name, last_name, username } =
+          const { id, first_name, last_name, username } =
             window.Telegram.WebApp.initDataUnsafe.user;
           let chat = window.Telegram.WebApp.initDataUnsafe.chat;
           let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
@@ -821,7 +821,7 @@
                   multiplier: 2,
                   completion_deadline: "2024-03-06T16:08:03.255Z",
                   maximum_bet: 10,
-                  created_by: 1,
+                  created_by: id,
                 }),
                 headers: {
                   "Content-Type": "application/json-patch+json",
@@ -842,7 +842,7 @@
                   multiplier: 1,
                   completion_deadline: "2024-03-06T16:08:03.255Z",
                   maximum_bet: 10,
-                  created_by: 1,
+                  created_by: id,
                 }),
                 headers: {
                   "Content-Type": "application/json-patch+json",
