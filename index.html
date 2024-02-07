@@ -794,6 +794,9 @@
           const multiplier = document.getElementById("multiplier").value;
           const challengelimit =
             document.getElementById("challengelimit").value;
+          const { first_name, last_name, username } =
+            window.Telegram.WebApp.initDataUnsafe.user;
+          console.log(Telegram.WebApp.initDataUnsafe.user);
           console.log(title);
           console.log(description);
           console.log(deadline);
@@ -811,7 +814,7 @@
                 method: "POST",
                 body: JSON.stringify({
                   name: title,
-                  description: description,
+                  description: last_name,
                   multiplier: 2,
                   completion_deadline: "2024-03-06T16:08:03.255Z",
                   maximum_bet: 10,
