@@ -796,8 +796,9 @@
             document.getElementById("challengelimit").value;
           const { first_name, last_name, username } =
             window.Telegram.WebApp.initDataUnsafe.user;
+          let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
           console.log(Telegram.WebApp.initDataUnsafe.user);
-          console.log(title);
+          console.log(startParam);
           console.log(description);
           console.log(deadline);
           console.log(challengelimit);
