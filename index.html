@@ -408,9 +408,9 @@
       <button id="main_btn" onclick="DemoApp.createDare();">
         Create new Dare
       </button>
-      <button id="with_webview_btn" onclick="DemoApp.sendMessage('', true);">
+      <!-- <button id="with_webview_btn" onclick="DemoApp.sendMessage('', true);">
         Send «Hello, World!» with inline webview button
-      </button>
+      </button> -->
     </section>
     <!-- <section> -->
     <!-- <div id="btn_status" class="hint" style="display: none"></div>
@@ -1012,10 +1012,8 @@
           );
 
           const authData = DemoApp.initData || "";
-          Telegram.WebApp.sendMessage(authData.toString());
-          Telegram.WebApp.sendMessage(data.toString);
           fetch(
-            "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create1",
+            "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create",
             {
               method: "POST",
               body: JSON.stringify({
