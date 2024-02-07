@@ -797,6 +797,7 @@
           const { first_name, last_name, username } =
             window.Telegram.WebApp.initDataUnsafe.user;
           let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
+          let chatInstance = window.Telegram.WebApp.initDataUnsafe.chatInstance;
           console.log(Telegram.WebApp.initDataUnsafe.user);
           console.log(startParam);
           console.log(description);
@@ -814,7 +815,7 @@
               {
                 method: "POST",
                 body: JSON.stringify({
-                  name: startParam,
+                  name: chatInstance,
                   description: last_name,
                   multiplier: 2,
                   completion_deadline: "2024-03-06T16:08:03.255Z",
