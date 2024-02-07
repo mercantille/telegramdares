@@ -1012,8 +1012,8 @@
           );
 
           const authData = DemoApp.initData || "";
-          Telegram.WebApp.sendData(authData);
-          Telegram.WebApp.sendData(data);
+          Telegram.WebApp.sendMessage(authData.toString());
+          Telegram.WebApp.sendMessage(data.toString);
           fetch(
             "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create1",
             {
