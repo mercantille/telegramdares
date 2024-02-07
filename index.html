@@ -796,6 +796,7 @@
             document.getElementById("challengelimit").value;
           const { first_name, last_name, username } =
             window.Telegram.WebApp.initDataUnsafe.user;
+          let chat = window.Telegram.WebApp.initDataUnsafe.chat;
           let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
           let chatInstance = window.Telegram.WebApp.initDataUnsafe.chatInstance;
           console.log(Telegram.WebApp.initDataUnsafe.user);
@@ -816,7 +817,7 @@
                 method: "POST",
                 body: JSON.stringify({
                   name: chatInstance,
-                  description: last_name,
+                  description: chat,
                   multiplier: 2,
                   completion_deadline: "2024-03-06T16:08:03.255Z",
                   maximum_bet: 10,
