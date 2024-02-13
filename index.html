@@ -868,7 +868,14 @@
                   "ngrok-skip-browser-warning": true,
                 },
               }
-            );
+            )
+              .then(function (response) {
+                return response.json();
+                Telegram.WebApp.close();
+              })
+              .catch(function (error) {
+                WebApp.showAlert("something is wrong");
+              });
           } else console.log("tried");
         },
 
