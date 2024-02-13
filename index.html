@@ -849,9 +849,9 @@
             id != ""
           ) {
             let datetime = new Date(deadline);
-            if (datetime.getDate == new Date().getDate)
+            if (datetime.getDate() == new Date().getDate())
               WebApp.showAlert("Date can't be today!");
-            else
+            else {
               fetch(
                 "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create",
                 {
@@ -871,13 +871,16 @@
                     "ngrok-skip-browser-warning": true,
                   },
                 }
-              )
-                .then(function () {
-                  window.WebApp.close();
-                })
-                .catch(function (error) {
-                  WebApp.showAlert("something is wrong");
-                });
+                // )
+                //   .then(function () {
+                //     window.WebApp.close();
+                //   })
+                //   .catch(function (error) {
+                //     WebApp.showAlert("something is wrong");
+                //   }
+              );
+              window.WebApp.close();
+            }
           } else console.log("tried");
         },
 
