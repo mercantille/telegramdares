@@ -351,6 +351,10 @@
           class="small"
           id="title"
           placeholder="What will you do?"
+          onkeyup="DemoApp.buttonstatus()"
+          onkeydown="DemoApp.buttonstatus()"
+          onchange="DemoApp.buttonstatus()"
+          onpaste="DemoApp.buttonstatus()"
         />
       </div>
       <div class="block">
@@ -359,6 +363,10 @@
           type="text"
           id="description"
           placeholder="Describe in more detail"
+          onkeyup="DemoApp.buttonstatus()"
+          onkeydown="DemoApp.buttonstatus()"
+          onchange="DemoApp.buttonstatus()"
+          onpaste="DemoApp.buttonstatus()"
         />
       </div>
       <!-- <div id="peer_wrap" style="display: none">
@@ -379,6 +387,10 @@
           type="date"
           placeholder="Input text in regular input..."
           id="deadline"
+          onkeyup="DemoApp.buttonstatus()"
+          onkeydown="DemoApp.buttonstatus()"
+          onchange="DemoApp.buttonstatus()"
+          onpaste="DemoApp.buttonstatus()"
         />
       </div>
       <div class="row">
@@ -389,6 +401,10 @@
             class="small"
             placeholder="Maximum total challenges"
             id="challengelimit"
+            onkeyup="DemoApp.buttonstatus()"
+            onkeydown="DemoApp.buttonstatus()"
+            onchange="DemoApp.buttonstatus()"
+            onpaste="DemoApp.buttonstatus()"
           />
         </div>
         <div class="block">
@@ -854,6 +870,28 @@
             );
           console.log("tried");
         },
+
+        buttonstatus() {
+          let title = document.getElementById("title").value;
+          let description = document.getElementById("description").value;
+          let challengelimit = document.getElementById("challengelimit").value;
+          let deadline = document.getElementById("deadline").value;
+          console.log(title, description, challengelimit, deadline);
+
+          if (
+            title == "" ||
+            description == "" ||
+            challengelimit == "" ||
+            deadline == ""
+          ) {
+            document.getElementById("main_btn").disabled = true;
+            Telegram.WebApp.MainButton.disable();
+          } else {
+            document.getElementById("main_btn").disabled = false;
+            Telegram.WebApp.MainButton.enable();
+          }
+        },
+
         // Alerts
         showAlert(message) {
           Telegram.WebApp.showAlert(message);
