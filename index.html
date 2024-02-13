@@ -172,6 +172,21 @@
         text-align: start;
       }
 
+      input[type="number"],
+      .input[contenteditable] {
+        display: block;
+        box-sizing: border-box;
+        font-size: 14px;
+        width: 100%;
+        padding: 12px 20px;
+        margin-top: 8px;
+        border: 1px solid var(--tg-theme-link-color, #000);
+        background-color: var(--tg-theme-bg-color, #ffffff);
+        border-radius: 4px;
+        color: var(--tg-theme-text-color, #222222);
+        text-align: start;
+      }
+
       input[type="text"]::-webkit-input-placeholder {
         color: var(--tg-theme-hint-color, #ccc);
       }
@@ -397,7 +412,7 @@
         <div class="block">
           <span class="header">Maximum total challenges</span>
           <input
-            type="text"
+            type="number"
             class="small"
             placeholder="Maximum total challenges"
             id="challengelimit"
@@ -410,20 +425,25 @@
         <div class="block">
           <span class="header">Multiplier</span>
           <select id="multiplier">
-            <option value="2x" selected>2x</option>
-            <option value="3x">3x</option>
-            <option value="4x">4x</option>
-            <option value="4x">5x</option>
-            <option value="4x">6x</option>
-            <option value="4x">8x</option>
-            <option value="4x">10x</option>
+            <option value="2" selected>2x</option>
+            <option value="3">3x</option>
+            <option value="4">4x</option>
+            <option value="5">5x</option>
+            <option value="6">6x</option>
+            <option value="8">8x</option>
+            <option value="10">10x</option>
             <!-- <option value="4x" id="bg_color_val">custom...</option> -->
           </select>
         </div>
       </div>
-      <button id="main_btn" onclick="DemoApp.createDare();">
+      <button
+        id="main_btn"
+        onclick="DemoApp.createDare();"
+        style="display: none"
+      >
         Create new Dare
       </button>
+
       <!-- <button id="with_webview_btn" onclick="DemoApp.sendMessage('', true);">
         Send «Hello, World!» with inline webview button
       </button> -->
@@ -825,18 +845,20 @@
             title != "" &&
             description != "" &&
             deadline != "" &&
-            challengelimit != ""
-          )
+            challengelimit != "" &&
+            id != ""
+          ) {
+            let datetime = new Date(deadline);
             fetch(
               "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create",
               {
                 method: "POST",
                 body: JSON.stringify({
-                  name: chatInstance,
-                  description: chat,
-                  multiplier: 2,
-                  completion_deadline: "2024-03-06T16:08:03.255Z",
-                  maximum_bet: 10,
+                  name: title,
+                  description: description,
+                  multiplier: multiplier,
+                  completion_deadline: datetime,
+                  maximum_bet: challengelimit,
                   created_by: id,
                 }),
                 headers: {
@@ -847,28 +869,7 @@
                 },
               }
             );
-          else
-            fetch(
-              "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create",
-              {
-                method: "POST",
-                body: JSON.stringify({
-                  name: "Hello",
-                  description: "Hello from Bot",
-                  multiplier: 1,
-                  completion_deadline: "2024-03-06T16:08:03.255Z",
-                  maximum_bet: 10,
-                  created_by: id,
-                }),
-                headers: {
-                  "Content-Type": "application/json-patch+json",
-                  "Access-Control-Allow-Origin": "*",
-                  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-                  "ngrok-skip-browser-warning": true,
-                },
-              }
-            );
-          console.log("tried");
+          } else console.log("tried");
         },
 
         buttonstatus() {
