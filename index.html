@@ -870,8 +870,8 @@
               }
             )
               .then(function (response) {
-                return response.json();
-                Telegram.WebApp.close();
+                WebApp.showAlert("something is right");
+                window.Telegram.WebApp.close();
               })
               .catch(function (error) {
                 WebApp.showAlert("something is wrong");
