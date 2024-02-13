@@ -868,14 +868,9 @@
                   "ngrok-skip-browser-warning": true,
                 },
               }
-            )
-              .then(function (response) {
-                WebApp.showAlert("something is right");
-                window.Telegram.WebApp.close();
-              })
-              .catch(function (error) {
-                WebApp.showAlert("something is wrong");
-              });
+            );
+            // WebApp.showAlert("something is right");
+            window.Telegram.WebApp.close();
           } else console.log("tried");
         },
 
