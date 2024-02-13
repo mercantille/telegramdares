@@ -849,8 +849,7 @@
             id != ""
           ) {
             let datetime = new Date(deadline);
-            if (datetime.getDate() == new Date().getDate())
-              WebApp.showAlert("Date can't be today!");
+            if (false) WebApp.showAlert("Date can't be today!");
             else {
               fetch(
                 "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create",
