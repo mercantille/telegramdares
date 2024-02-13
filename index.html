@@ -649,7 +649,7 @@
           Telegram.WebApp.ready();
           Telegram.WebApp.MainButton.setParams({
             text: "Create new Dare",
-            is_visible: true,
+            is_visible: false,
           }).onClick(DemoApp.createDare);
         },
         expand() {
@@ -885,10 +885,10 @@
             deadline == ""
           ) {
             document.getElementById("main_btn").disabled = true;
-            Telegram.WebApp.MainButton.disable();
+            Telegram.WebApp.MainButton.hide();
           } else {
             document.getElementById("main_btn").disabled = false;
-            Telegram.WebApp.MainButton.enable();
+            Telegram.WebApp.MainButton.show();
           }
         },
 
