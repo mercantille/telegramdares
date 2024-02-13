@@ -849,28 +849,35 @@
             id != ""
           ) {
             let datetime = new Date(deadline);
-            fetch(
-              "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create",
-              {
-                method: "POST",
-                body: JSON.stringify({
-                  name: title,
-                  description: description,
-                  multiplier: multiplier,
-                  completion_deadline: datetime,
-                  maximum_bet: challengelimit,
-                  created_by: id,
-                }),
-                headers: {
-                  "Content-Type": "application/json-patch+json",
-                  "Access-Control-Allow-Origin": "*",
-                  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-                  "ngrok-skip-browser-warning": true,
-                },
-              }
-            );
-            // WebApp.showAlert("something is right");
-            window.Telegram.WebApp.close();
+            if (datetime.getDate == new Date().getDate)
+              WebApp.showAlert("Date can't be today!");
+            else
+              fetch(
+                "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create",
+                {
+                  method: "POST",
+                  body: JSON.stringify({
+                    name: title,
+                    description: description,
+                    multiplier: multiplier,
+                    completion_deadline: datetime,
+                    maximum_bet: challengelimit,
+                    created_by: id,
+                  }),
+                  headers: {
+                    "Content-Type": "application/json-patch+json",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+                    "ngrok-skip-browser-warning": true,
+                  },
+                }
+              )
+                .then(function () {
+                  window.WebApp.close();
+                })
+                .catch(function (error) {
+                  WebApp.showAlert("something is wrong");
+                });
           } else console.log("tried");
         },
 
