@@ -122,6 +122,13 @@
         border-color: #000;
       }
 
+      .wide {
+        padding: 8px !important;
+        border-radius: 4px;
+        border-width: 1px;
+        border-color: #000;
+      }
+
       .header {
         left: 0;
         float: left;
@@ -158,10 +165,12 @@
       }
 
       input[type="text"],
-      .input[contenteditable] {
+      .input[contenteditable],
+      textarea {
         display: block;
         box-sizing: border-box;
         font-size: 14px;
+        font-family: "Roboto";
         width: 100%;
         padding: 12px 20px;
         margin-top: 8px;
@@ -374,15 +383,18 @@
       </div>
       <div class="block">
         <span class="header">Description</span>
-        <input
+        <textarea
+          name="description"
+          rows="2"
           type="text"
+          class="wide"
           id="description"
           placeholder="Describe in more detail"
           onkeyup="DemoApp.buttonstatus()"
           onkeydown="DemoApp.buttonstatus()"
           onchange="DemoApp.buttonstatus()"
           onpaste="DemoApp.buttonstatus()"
-        />
+        ></textarea>
       </div>
       <!-- <div id="peer_wrap" style="display: none">
         <img id="peer_photo" class="chat_img" src="" />
@@ -439,7 +451,7 @@
       <button
         id="main_btn"
         onclick="DemoApp.createDare();"
-        style="display: none"
+        style="display: visible"
       >
         Create new Dare
       </button>
@@ -823,15 +835,15 @@
           }
         },
 
-        createDare() {
+        async createDare() {
           const title = document.getElementById("title").value;
           const description = document.getElementById("description").value;
           const deadline = document.getElementById("deadline").value;
           const multiplier = document.getElementById("multiplier").value;
           const challengelimit =
             document.getElementById("challengelimit").value;
-          const { id, first_name, last_name, username } =
-            window.Telegram.WebApp.initDataUnsafe.user;
+          // const { id, first_name, last_name, username } =
+          //   window.Telegram.WebApp.initDataUnsafe.user;
           let chat = window.Telegram.WebApp.initDataUnsafe.chat;
           let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
           let chatInstance = window.Telegram.WebApp.initDataUnsafe.chatInstance;
@@ -845,39 +857,72 @@
             title != "" &&
             description != "" &&
             deadline != "" &&
-            challengelimit != "" &&
-            id != ""
+            challengelimit != ""
+            // &&
+            // id != ""
           ) {
             let datetime = new Date(deadline);
+            let challengebad = isNaN(challengelimit);
             if (false) WebApp.showAlert("Date can't be today!");
+            else if (challengebad)
+              WebApp.showAlert("Challenge Limit must be a number!");
             else {
-              fetch(
-                "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create",
-                {
-                  method: "POST",
-                  body: JSON.stringify({
-                    name: title,
-                    description: description,
-                    multiplier: multiplier,
-                    completion_deadline: datetime,
-                    maximum_bet: challengelimit,
-                    created_by: id,
-                  }),
-                  headers: {
-                    "Content-Type": "application/json-patch+json",
-                    "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-                    "ngrok-skip-browser-warning": true,
-                  },
-                }
-                // )
-                //   .then(function () {
-                //     window.WebApp.close();
-                //   })
-                //   .catch(function (error) {
-                //     WebApp.showAlert("something is wrong");
-                //   }
-              );
+              let url =
+                "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create";
+              let params = {
+                method: "POST",
+                body: JSON.stringify({
+                  name: title,
+                  description: description,
+                  multiplier: multiplier,
+                  completion_deadline: datetime,
+                  maximum_bet: challengelimit,
+                  created_by: 22802703,
+                  //  name: title,
+                  // description: description,
+                  // multiplier: multiplier,
+                  // completion_deadline: datetime,
+                  // maximum_bet: challengelimit,
+                  // created_by: id,
+                }),
+                headers: {
+                  "Content-Type": "application/json-patch+json",
+                  "Access-Control-Allow-Origin": "*",
+                  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+                  "ngrok-skip-browser-warning": true,
+                },
+              };
+              await fetch(url, params)
+                .then(async function (response) {
+                  if (response.ok) console.log(response);
+                  else {
+                    resp = await response.json();
+                    console.log(resp);
+                    console.log(resp.error.details[0]);
+                    console.log(resp.error.details);
+                    switch (Object.keys(resp.error.details)[0]) {
+                      case "CompletionDeadline":
+                        console.log("Date must be later than today!");
+                        DemoApp.showAlert("Date must be later than today!");
+                        return;
+                      default:
+                        console.log("unknown error");
+                        return;
+                    }
+                  }
+                })
+                .catch(function (error) {
+                  console.log("caught");
+                  console.log(error);
+                  // DemoApp.showAlert("something is wrong");
+                });
+              // )
+              // .then(function (result) {
+              //   onCallback && onCallback(result);
+              // })
+              // .catch(function (error) {
+              //   onCallback && onCallback({ error: "Server error" });
+              // });
               Telegram.WebApp.close();
             }
           } else console.log("tried");
@@ -1169,6 +1214,17 @@
           }
         }
         return s;
+      }
+
+      async function callFetch(url, payload) {
+        await fetch(url, payload)
+          .then(async function (response) {
+            let resp = await response.json();
+            console.log(resp);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       }
 
       function round(val, d) {
