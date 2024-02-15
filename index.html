@@ -451,7 +451,7 @@
       <button
         id="main_btn"
         onclick="DemoApp.createDare();"
-        style="display: visible"
+        style="display: none"
       >
         Create new Dare
       </button>
@@ -862,7 +862,11 @@
             // id != ""
           ) {
             let datetime = new Date(deadline);
+            let today = new Date();
             let challengebad = isNaN(challengelimit);
+            console.log(datetime);
+            console.log(datetime.getUTCDate());
+            console.log(today.getDate());
             if (false) WebApp.showAlert("Date can't be today!");
             else if (challengebad)
               WebApp.showAlert("Challenge Limit must be a number!");
@@ -877,7 +881,7 @@
                   multiplier: multiplier,
                   completion_deadline: datetime,
                   maximum_bet: challengelimit,
-                  created_by: 22802703,
+                  created_by: id,
                   //  name: title,
                   // description: description,
                   // multiplier: multiplier,
@@ -894,12 +898,13 @@
               };
               await fetch(url, params)
                 .then(async function (response) {
-                  if (response.ok) console.log(response);
-                  else {
+                  if (response.ok) {
+                    console.log(response);
+                    WebApp.showAlert("Dare created!");
+                    Telegram.WebApp.close();
+                  } else {
                     resp = await response.json();
                     console.log(resp);
-                    console.log(resp.error.details[0]);
-                    console.log(resp.error.details);
                     switch (Object.keys(resp.error.details)[0]) {
                       case "CompletionDeadline":
                         console.log("Date must be later than today!");
@@ -907,6 +912,7 @@
                         return;
                       default:
                         console.log("unknown error");
+                        DemoApp.showAlert("Unknown Error!");
                         return;
                     }
                   }
@@ -923,7 +929,6 @@
               // .catch(function (error) {
               //   onCallback && onCallback({ error: "Server error" });
               // });
-              Telegram.WebApp.close();
             }
           } else console.log("tried");
         },
