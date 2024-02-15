@@ -451,7 +451,7 @@
       <button
         id="main_btn"
         onclick="DemoApp.createDare();"
-        style="display: none"
+        style="display: visible"
       >
         Create new Dare
       </button>
@@ -842,8 +842,8 @@
           const multiplier = document.getElementById("multiplier").value;
           const challengelimit =
             document.getElementById("challengelimit").value;
-          // const { id, first_name, last_name, username } =
-          //   window.Telegram.WebApp.initDataUnsafe.user;
+          const { id, first_name, last_name, username } =
+            window.Telegram.WebApp.initDataUnsafe.user;
           let chat = window.Telegram.WebApp.initDataUnsafe.chat;
           let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
           let chatInstance = window.Telegram.WebApp.initDataUnsafe.chatInstance;
