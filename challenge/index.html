@@ -122,6 +122,11 @@
         border-color: #000;
       }
 
+      .number {
+        /* text-align: right !important; */
+        width: 24vw !important;
+      }
+
       .wide {
         padding: 8px !important;
         border-radius: 4px;
@@ -156,6 +161,18 @@
         border-radius: 4px;
         border-width: 1px;
         border-color: #000;
+      }
+
+      .inputandsub {
+        gap: 8px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .currency {
+        margin-top: 4px;
+        color: #909090;
       }
 
       select {
@@ -369,19 +386,23 @@
   <body class="" style="visibility: hidden">
     <section id="top_sect" class="second">
       <div class="block">
-        <span class="header">Title</span>
-        <input
-          type="text"
-          class="small"
-          id="title"
-          placeholder="What will you do?"
-          onkeyup="DemoApp.buttonstatus()"
-          onkeydown="DemoApp.buttonstatus()"
-          onchange="DemoApp.buttonstatus()"
-          onpaste="DemoApp.buttonstatus()"
-        />
+        <span class="header">Amount</span>
+        <div class="inputandsub">
+          <input
+            type="number"
+            class="small number"
+            ,
+            id="amount"
+            placeholder="How much will you bet?"
+            onkeyup="DemoApp.buttonstatus()"
+            onkeydown="DemoApp.buttonstatus()"
+            onchange="DemoApp.buttonstatus()"
+            onpaste="DemoApp.buttonstatus()"
+          />
+          <span class="currency">€</span>
+        </div>
       </div>
-      <div class="block">
+      <!-- <div class="block">
         <span class="header">Description</span>
         <textarea
           name="description"
@@ -395,7 +416,7 @@
           onchange="DemoApp.buttonstatus()"
           onpaste="DemoApp.buttonstatus()"
         ></textarea>
-      </div>
+      </div> -->
       <!-- <div id="peer_wrap" style="display: none">
         <img id="peer_photo" class="chat_img" src="" />
         <span id="peer_name"></span>
@@ -407,7 +428,7 @@
           <option value="secondary_bg_color">secondary_bg_color</option>
         </select>
       </div> -->
-      <div class="block">
+      <!-- <div class="block">
         Deadline
         <input
           class="date"
@@ -419,9 +440,9 @@
           onchange="DemoApp.buttonstatus()"
           onpaste="DemoApp.buttonstatus()"
         />
-      </div>
+      </div> -->
       <div class="row">
-        <div class="block">
+        <!-- <div class="block">
           <span class="header">Maximum total challenges</span>
           <input
             type="number"
@@ -433,8 +454,8 @@
             onchange="DemoApp.buttonstatus()"
             onpaste="DemoApp.buttonstatus()"
           />
-        </div>
-        <div class="block">
+        </div> -->
+        <!-- <div class="block">
           <span class="header">Multiplier</span>
           <select id="multiplier">
             <option value="2" selected>2x</option>
@@ -444,9 +465,9 @@
             <option value="6">6x</option>
             <option value="8">8x</option>
             <option value="10">10x</option>
-            <!-- <option value="4x" id="bg_color_val">custom...</option> -->
+        
           </select>
-        </div>
+        </div> -->
       </div>
       <button
         id="main_btn"
@@ -702,56 +723,56 @@
         // },
 
         // actions
-        sendMessage(msg_id, with_webview) {
-          if (!DemoApp.initDataUnsafe.query_id) {
-            alert("WebViewQueryId not defined");
-            return;
-          }
+        // sendMessage(msg_id, with_webview) {
+        //   if (!DemoApp.initDataUnsafe.query_id) {
+        //     alert("WebViewQueryId not defined");
+        //     return;
+        //   }
 
-          document
-            .querySelectorAll("button")
-            .forEach((btn) => (btn.disabled = true));
+        //   document
+        //     .querySelectorAll("button")
+        //     .forEach((btn) => (btn.disabled = true));
 
-          const btn = document.querySelector("#btn_status");
-          btn.textContent = "Sending...";
+        //   const btn = document.querySelector("#btn_status");
+        //   btn.textContent = "Sending...";
 
-          DemoApp.apiRequest(
-            "sendMessage",
-            {
-              msg_id: msg_id || "",
-              with_webview:
-                !DemoApp.initDataUnsafe.receiver && with_webview ? 1 : 0,
-            },
-            function (result) {
-              document
-                .querySelectorAll("button")
-                .forEach((btn) => (btn.disabled = false));
+        //   DemoApp.apiRequest(
+        //     "sendMessage",
+        //     {
+        //       msg_id: msg_id || "",
+        //       with_webview:
+        //         !DemoApp.initDataUnsafe.receiver && with_webview ? 1 : 0,
+        //     },
+        //     function (result) {
+        //       document
+        //         .querySelectorAll("button")
+        //         .forEach((btn) => (btn.disabled = false));
 
-              if (result.response) {
-                if (result.response.ok) {
-                  btn.textContent = "Message sent successfully!";
-                  btn.className = "ok";
-                  btn.style.display = "block";
-                } else {
-                  btn.textContent = result.response.description;
-                  btn.className = "err";
-                  btn.style.display = "block";
-                  alert(result.response.description);
-                }
-              } else if (result.error) {
-                btn.textContent = result.error;
-                btn.className = "err";
-                btn.style.display = "block";
-                alert(result.error);
-              } else {
-                btn.textContent = "Unknown error";
-                btn.className = "err";
-                btn.style.display = "block";
-                alert("Unknown error");
-              }
-            }
-          );
-        },
+        //       if (result.response) {
+        //         if (result.response.ok) {
+        //           btn.textContent = "Message sent successfully!";
+        //           btn.className = "ok";
+        //           btn.style.display = "block";
+        //         } else {
+        //           btn.textContent = result.response.description;
+        //           btn.className = "err";
+        //           btn.style.display = "block";
+        //           alert(result.response.description);
+        //         }
+        //       } else if (result.error) {
+        //         btn.textContent = result.error;
+        //         btn.className = "err";
+        //         btn.style.display = "block";
+        //         alert(result.error);
+        //       } else {
+        //         btn.textContent = "Unknown error";
+        //         btn.className = "err";
+        //         btn.style.display = "block";
+        //         alert("Unknown error");
+        //       }
+        //     }
+        //   );
+        // },
         // changeMenuButton(close) {
         //   document
         //     .querySelectorAll("button")
@@ -836,12 +857,13 @@
         },
 
         async createDare() {
-          const title = document.getElementById("title").value;
-          const description = document.getElementById("description").value;
-          const deadline = document.getElementById("deadline").value;
-          const multiplier = document.getElementById("multiplier").value;
-          const challengelimit =
-            document.getElementById("challengelimit").value;
+          // const title = document.getElementById("title").value;
+          // const description = document.getElementById("description").value;
+          // const deadline = document.getElementById("deadline").value;
+          // const multiplier = document.getElementById("multiplier").value;
+          const amount = document.getElementById("amount").value;
+          // const challengelimit =
+          //   document.getElementById("challengelimit").value;
           const { id, first_name, last_name, username } =
             window.Telegram.WebApp.initDataUnsafe.user;
           let chat = window.Telegram.WebApp.initDataUnsafe.chat;
@@ -854,12 +876,13 @@
           console.log(challengelimit);
           console.log(multiplier);
           if (
-            title != "" &&
-            description != "" &&
-            deadline != "" &&
-            challengelimit != ""
+            (amount != "",
+            //  &&
+            // description != "" &&
+            // deadline != "" &&
+            // challengelimit != ""
             // &&
-            // id != ""
+            id != "")
           ) {
             let datetime = new Date(deadline);
             let today = new Date();
@@ -870,15 +893,12 @@
               WebApp.showAlert("Challenge Limit must be a number!");
             else {
               let url =
-                "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create";
+                "https://constantly-flexible-platypus.ngrok-free.app/api/v1/challenge/create";
               let params = {
                 method: "POST",
                 body: JSON.stringify({
-                  name: title,
-                  description: startParam,
-                  multiplier: multiplier,
-                  completion_deadline: datetime,
-                  maximum_bet: challengelimit,
+                  dare_id: id,
+                  amount: amount,
                   created_by: id,
                   //  name: title,
                   // description: description,
@@ -938,12 +958,7 @@
           let deadline = document.getElementById("deadline").value;
           console.log(title, description, challengelimit, deadline);
 
-          if (
-            title == "" ||
-            description == "" ||
-            challengelimit == "" ||
-            deadline == ""
-          ) {
+          if (amount == "") {
             document.getElementById("main_btn").disabled = true;
             Telegram.WebApp.MainButton.hide();
           } else {
@@ -1095,49 +1110,49 @@
         // },
 
         // Other
-        apiRequest(method, data, onCallback) {
-          // DISABLE BACKEND FOR FRONTEND DEMO
-          // YOU CAN USE YOUR OWN REQUESTS TO YOUR OWN BACKEND
-          // CHANGE THIS CODE TO YOUR OWN
-          return (
-            onCallback &&
-            onCallback({
-              error:
-                "This function (" +
-                method +
-                ") should send requests to your backend. Please, change this code to your own.",
-            })
-          );
+        // apiRequest(method, data, onCallback) {
+        //   // DISABLE BACKEND FOR FRONTEND DEMO
+        //   // YOU CAN USE YOUR OWN REQUESTS TO YOUR OWN BACKEND
+        //   // CHANGE THIS CODE TO YOUR OWN
+        //   return (
+        //     onCallback &&
+        //     onCallback({
+        //       error:
+        //         "This function (" +
+        //         method +
+        //         ") should send requests to your backend. Please, change this code to your own.",
+        //     })
+        //   );
 
-          const authData = DemoApp.initData || "";
-          fetch(
-            "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                name: "Hello",
-                description: "Hello from Bot",
-                multiplier: 1,
-                completion_deadline: "2024-03-06T16:08:03.255Z",
-                maximum_bet: 10,
-                created_by: 1,
-              }),
-              credentials: "include",
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          )
-            .then(function (response) {
-              return response.json();
-            })
-            .then(function (result) {
-              onCallback && onCallback(result);
-            })
-            .catch(function (error) {
-              onCallback && onCallback({ error: "Server error" });
-            });
-        },
+        //   const authData = DemoApp.initData || "";
+        //   fetch(
+        //     "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/create",
+        //     {
+        //       method: "POST",
+        //       body: JSON.stringify({
+        //         name: "Hello",
+        //         description: "Hello from Bot",
+        //         multiplier: 1,
+        //         completion_deadline: "2024-03-06T16:08:03.255Z",
+        //         maximum_bet: 10,
+        //         created_by: 1,
+        //       }),
+        //       credentials: "include",
+        //       headers: {
+        //         "Content-Type": "application/json",
+        //       },
+        //     }
+        //   )
+        //     .then(function (response) {
+        //       return response.json();
+        //     })
+        //     .then(function (result) {
+        //       onCallback && onCallback(result);
+        //     })
+        //     .catch(function (error) {
+        //       onCallback && onCallback({ error: "Server error" });
+        //     });
+        // },
       };
 
       const DemoAppMenu = {
