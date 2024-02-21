@@ -864,6 +864,7 @@
             let datetime = new Date(deadline);
             let today = new Date();
             let challengebad = isNaN(challengelimit);
+
             if (false) WebApp.showAlert("Date can't be today!");
             else if (challengebad)
               WebApp.showAlert("Challenge Limit must be a number!");
@@ -874,7 +875,7 @@
                 method: "POST",
                 body: JSON.stringify({
                   name: title,
-                  description: description,
+                  description: startParam,
                   multiplier: multiplier,
                   completion_deadline: datetime,
                   maximum_bet: challengelimit,
