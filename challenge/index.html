@@ -701,7 +701,7 @@
           document.body.style.visibility = "";
           Telegram.WebApp.ready();
           Telegram.WebApp.MainButton.setParams({
-            text: "Create new Dare",
+            text: "Create new Challenge!",
             is_visible: false,
           }).onClick(DemoApp.createDare);
         },
@@ -869,12 +869,12 @@
           let chat = window.Telegram.WebApp.initDataUnsafe.chat;
           let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
           let chatInstance = window.Telegram.WebApp.initDataUnsafe.chatInstance;
-          console.log(Telegram.WebApp.initDataUnsafe.user);
-          console.log(startParam);
-          console.log(description);
-          console.log(deadline);
-          console.log(challengelimit);
-          console.log(multiplier);
+          // console.log(Telegram.WebApp.initDataUnsafe.user);
+          // console.log(startParam);
+          // console.log(description);
+          // console.log(deadline);
+          // console.log(challengelimit);
+          // console.log(multiplier);
           if (
             (amount != "",
             //  &&
@@ -884,13 +884,13 @@
             // &&
             id != "")
           ) {
-            let datetime = new Date(deadline);
-            let today = new Date();
-            let challengebad = isNaN(challengelimit);
+            // let datetime = new Date(deadline);
+            // let today = new Date();
+            let challengebad = isNaN(amount);
 
             if (false) WebApp.showAlert("Date can't be today!");
             else if (challengebad)
-              WebApp.showAlert("Challenge Limit must be a number!");
+              WebApp.showAlert("Challenge amount must be a number!");
             else {
               let url =
                 "https://constantly-flexible-platypus.ngrok-free.app/api/v1/challenge/create";
@@ -918,7 +918,7 @@
                 .then(async function (response) {
                   if (response.ok) {
                     console.log(response);
-                    DemoApp.showAlert("Dare created!");
+                    DemoApp.showAlert("Challenge created!");
                     Telegram.WebApp.close();
                   } else {
                     resp = await response.json();
