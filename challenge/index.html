@@ -383,8 +383,24 @@
     </style>
   </head>
 
-  <body class="" style="visibility: hidden">
+  <body class="" style="visibility: hidden" onload="DemoApp.loadDetails()">
     <section id="top_sect" class="second">
+      <div class="block">
+        <span class="header">Name</span>
+        <span class="currency header" id="header">Loading...</span>
+      </div>
+      <div class="block">
+        <span class="header">Description</span>
+        <span class="currency" id="description">Loading...</span>
+      </div>
+      <div class="block">
+        <span class="header">Multiplier</span>
+        <span class="currency multiplier" id="multiplier">Loading...</span>
+      </div>
+      <div class="block">
+        <span class="header">Created by</span>
+        <span class="currency multiplier" id="created_by">Loading...</span>
+      </div>
       <div class="block">
         <span class="header">Amount</span>
         <div class="inputandsub">
@@ -854,6 +870,55 @@
           for (let i = 0; i < repeat; i++) {
             Telegram.WebApp.sendData(new Date().toString());
           }
+        },
+
+        async loadDetails() {
+          let dareID = window.Telegram.WebApp.initDataUnsafe.start_param;
+          let url =
+            "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/query";
+          let params = {
+            method: "POST",
+            body: JSON.stringify({
+              dare_id: dareID,
+              //  name: title,
+              // description: description,
+              // multiplier: multiplier,
+              // completion_deadline: datetime,
+              // maximum_bet: challengelimit,
+              // created_by: id,
+            }),
+            headers: {
+              "Content-Type": "application/json-patch+json",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+              "ngrok-skip-browser-warning": true,
+            },
+          };
+          await fetch(url, params)
+            .then(async function (response) {
+              if (response.ok) {
+                console.log(response);
+                DemoApp.showAlert("Loaded!");
+              } else {
+                resp = await response.json();
+                console.log(resp);
+                switch (Object.keys(resp.error.details)[0]) {
+                  case "CompletionDeadline":
+                    console.log("Date must be later than today!");
+                    DemoApp.showAlert("Date must be later than today!");
+                    document.getElementById("name").textContent = response;
+                    return;
+                  default:
+                    console.log("unknown error");
+                    DemoApp.showAlert("Unknown Error!");
+                    return;
+                }
+              }
+            })
+            .catch(function (error) {
+              console.log("caught");
+              console.log(error);
+            });
         },
 
         async createDare() {
