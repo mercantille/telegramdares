@@ -897,16 +897,17 @@
           await fetch(url, params)
             .then(async function (response) {
               if (response.ok) {
-                console.log(response);
-                DemoApp.showAlert("Loaded!");
+                resp = await response.json();
+                console.log(resp);
+                // DemoApp.showAlert("Loaded!");
                 document.getElementById("name").textContent =
-                  response.data.dares[0].name;
+                  resp.data.dares[0].name;
                 document.getElementById("description").textContent =
-                  response.data.dares[0].description;
+                  resp.data.dares[0].description;
                 document.getElementById("multiplier").textContent =
-                  response.data.dares[0].multiplier;
+                  resp.data.dares[0].multiplier;
                 document.getElementById("created_by").textContent =
-                  response.data.dares[0].created_by;
+                  resp.data.dares[0].created_by;
               } else {
                 resp = await response.json();
                 console.log(resp);
@@ -1406,8 +1407,8 @@
 
       //   DemoApp.checkInitData();
       DemoApp.init();
-      var title = document.getElementById("title").value;
-      console.log(title);
+      // var title = document.getElementById("title").value;
+      // console.log(title);
 
       function setViewportData() {
         document
