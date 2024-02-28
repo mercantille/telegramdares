@@ -899,7 +899,14 @@
               if (response.ok) {
                 console.log(response);
                 DemoApp.showAlert("Loaded!");
-                document.getElementById("name").textContent = response;
+                document.getElementById("name").textContent =
+                  response.data.dares[0].name;
+                document.getElementById("description").textContent =
+                  response.data.dares[0].description;
+                document.getElementById("multiplier").textContent =
+                  response.data.dares[0].multiplier;
+                document.getElementById("created_by").textContent =
+                  response.data.dares[0].created_by;
               } else {
                 resp = await response.json();
                 console.log(resp);
