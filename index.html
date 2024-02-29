@@ -129,9 +129,9 @@
 
       .wide {
         padding: 8px !important;
-        border-radius: 4px;
+        /* border-radius: 4px;
         border-width: 1px;
-        border-color: #000;
+        border-color: #000; */
       }
 
       .header {
@@ -182,6 +182,7 @@
       }
 
       input[type="text"],
+      textarea,
       .input[contenteditable],
       textarea {
         display: block;
@@ -214,15 +215,15 @@
       }
 
       input[type="text"]::-webkit-input-placeholder {
-        color: var(--tg-theme-hint-color, #ccc);
+        /* color: var(--tg-theme-hint-color, #ccc); */
       }
 
       input[type="text"]::-moz-placeholder {
-        color: var(--tg-theme-hint-color, #ccc);
+        /* color: var(--tg-theme-hint-color, #ccc); */
       }
 
       input[type="text"]:-ms-input-placeholder {
-        color: var(--tg-theme-hint-color, #ccc);
+        /* color: var(--tg-theme-hint-color, #ccc); */
       }
 
       .input[data-placeholder] {
@@ -376,55 +377,6 @@
         font-size: 12px;
       }
 
-      .viewport-border,
-      .viewport-stable_border {
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        height: var(--tg-viewport-height, 100vh);
-        pointer-events: none;
-      }
-
-      .viewport-stable_border {
-        height: var(--tg-viewport-stable-height, 100vh);
-      }
-
-      .viewport-border:before,
-      .viewport-stable_border:before {
-        content: attr(text);
-        display: inline-block;
-        position: absolute;
-        background: gray;
-        right: 0;
-        top: 0;
-        font-size: 7px;
-        padding: 2px 4px;
-        vertical-align: top;
-      }
-
-      .viewport-stable_border:before {
-        background: green;
-        left: 0;
-        right: auto;
-      }
-
-      .viewport-border:after,
-      .viewport-stable_border:after {
-        content: "";
-        display: block;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        border: 2px dashed gray;
-      }
-
-      .viewport-stable_border:after {
-        border-color: green;
-      }
-
       small {
         font-size: 12px;
       }
@@ -499,6 +451,7 @@
             onpaste="DemoApp.buttonstatus()"
           />
         </div>
+
         <div class="block">
           <span class="header">Multiplier</span>
           <select id="multiplier">
