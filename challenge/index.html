@@ -23,14 +23,14 @@
     </script>
     <style>
       body {
-        --bg-color: var(--tg-theme-bg-color, #fff);
+        /* --bg-color: var(--tg-theme-bg-color, #fff); */
         font-family: sans-serif;
-        background-color: var(--bg-color);
-        color: var(--tg-theme-text-color, #222);
+        /* background-color: var(--bg-color); */
+        /* color: var(--tg-theme-text-color, #222); */
         font-size: 14px;
         margin: 0;
         padding: 0;
-        color-scheme: var(--tg-color-scheme);
+        /* color-scheme: var(--tg-color-scheme); */
       }
 
       body.gray {
@@ -41,7 +41,7 @@
         color: var(--tg-theme-link-color, #2678b6);
       }
 
-      .btn {
+      /* .btn {
         font-size: 14px;
         padding: 10px 17px;
       }
@@ -50,7 +50,7 @@
         background-color: var(--tg-theme-button-color, #50a8eb);
         color: var(--tg-theme-button-text-color, #fff);
         border: none;
-      }
+      } */
 
       button {
         display: block;
@@ -76,10 +76,10 @@
         margin: 0 0 10px;
       } */
 
-      a.list-group-item,
+      /* a.list-group-item,
       button.list-group-item {
         color: var(--tg-theme-text-color, #222);
-      }
+      } */
 
       .main-container p {
         margin: 0 0 10px;
@@ -296,7 +296,7 @@
         display: none;
       }
 
-      #fixed_wrap {
+      /* #fixed_wrap {
         position: fixed;
         left: 0;
         right: 0;
@@ -311,9 +311,9 @@
         top: 0;
         height: var(--tg-viewport-stable-height, 100vh);
         transition: height 0.2s ease;
-      }
+      } */
 
-      .viewport-container .main-container {
+      /* .viewport-container .main-container {
         position: absolute;
         left: 0;
         right: 0;
@@ -340,28 +340,27 @@
 
       .viewport-stable_border {
         height: var(--tg-viewport-stable-height, 100vh);
-      }
+      } */
 
-      .viewport-border:before,
+      /* .viewport-border:before,
       .viewport-stable_border:before {
         content: attr(text);
         display: inline-block;
         position: absolute;
-        background: gray;
         right: 0;
         top: 0;
-        font-size: 7px;
+        font-size: 12px;
         padding: 2px 4px;
         vertical-align: top;
-      }
+      } */
 
-      .viewport-stable_border:before {
-        background: green;
+      /* .viewport-stable_border:before {
+
         left: 0;
         right: auto;
-      }
+      } */
 
-      .viewport-border:after,
+      /* .viewport-border:after,
       .viewport-stable_border:after {
         content: "";
         display: block;
@@ -370,12 +369,8 @@
         right: 0;
         top: 0;
         bottom: 0;
-        border: 2px dashed gray;
-      }
-
-      .viewport-stable_border:after {
-        border-color: green;
-      }
+       
+      } */
 
       small {
         font-size: 12px;
@@ -383,7 +378,7 @@
     </style>
   </head>
 
-  <body class="" style="visibility: hidden" onload="DemoApp.loadDetails()">
+  <body class="popup" style="visibility: hidden" onload="DemoApp.loadDetails()">
     <section id="top_sect" class="second">
       <div class="block">
         <span class="header">Name</span>
