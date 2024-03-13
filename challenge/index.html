@@ -869,6 +869,8 @@
 
         async loadDetails() {
           let dareID = window.Telegram.WebApp.initDataUnsafe.start_param;
+          let chat = window.Telegram.WebApp.initDataUnsafe.chat;
+          let data = window.Telegram.WebApp.initDataUnsafe;
           let url =
             "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/query";
           let params = {
@@ -895,10 +897,12 @@
                 resp = await response.json();
                 console.log(resp);
                 // DemoApp.showAlert("Loaded!");
-                document.getElementById("name").textContent =
-                  resp.data.dares[0].name;
-                document.getElementById("description").textContent =
-                  resp.data.dares[0].description;
+                // document.getElementById("name").textContent =
+                //   resp.data.dares[0].name;
+                document.getElementById("name").textContent = chat;
+                // document.getElementById("description").textContent =
+                //   resp.data.dares[0].description;
+                document.getElementById("description").textContent = data;
                 document.getElementById("multiplier").textContent =
                   resp.data.dares[0].multiplier;
                 document.getElementById("created_by").textContent =
