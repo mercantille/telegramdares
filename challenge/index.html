@@ -869,6 +869,8 @@
 
         async loadDetails() {
           let dareID = window.Telegram.WebApp.initDataUnsafe.start_param;
+          const { id, first_name, last_name, username } =
+            window.Telegram.WebApp.initDataUnsafe.user;
           let chatInstance = window.Telegram.WebApp.initDataUnsafe.chatInstance;
           let data = window.Telegram.WebApp.initDataUnsafe;
           let url =
@@ -899,7 +901,7 @@
                 // DemoApp.showAlert("Loaded!");
                 // document.getElementById("name").textContent =
                 //   resp.data.dares[0].name;
-                document.getElementById("name").textContent = chatInstance;
+                document.getElementById("name").textContent = username;
                 // document.getElementById("description").textContent =
                 //   resp.data.dares[0].description;
                 document.getElementById("description").textContent = data;
