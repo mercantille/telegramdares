@@ -972,12 +972,11 @@
                 "https://constantly-flexible-platypus.ngrok-free.app/api/v1/challenge/create";
               let params = {
                 method: "POST",
-                initData: initData,
                 body: JSON.stringify({
                   dare_id: startParam,
                   amount: amount,
                   created_by: id,
-
+                  initData: initData,
                   //  name: title,
                   // description: description,
                   // multiplier: multiplier,
