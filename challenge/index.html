@@ -944,6 +944,7 @@
           let chat = window.Telegram.WebApp.initDataUnsafe.chat;
           let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
           let chatInstance = window.Telegram.WebApp.initDataUnsafe.chatInstance;
+          let initData = window.Telegram.WebApp.initDataUnsafe;
           // console.log(Telegram.WebApp.initDataUnsafe.user);
           // console.log(startParam);
           // console.log(description);
@@ -971,10 +972,12 @@
                 "https://constantly-flexible-platypus.ngrok-free.app/api/v1/challenge/create";
               let params = {
                 method: "POST",
+                initData: initData,
                 body: JSON.stringify({
                   dare_id: startParam,
                   amount: amount,
                   created_by: id,
+
                   //  name: title,
                   // description: description,
                   // multiplier: multiplier,
