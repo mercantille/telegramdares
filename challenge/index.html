@@ -878,6 +878,7 @@
           let params = {
             method: "POST",
             body: JSON.stringify({
+              init_data: data,
               dare_ids: [dareID],
               //  name: title,
               // description: description,
@@ -941,9 +942,9 @@
           //   document.getElementById("challengelimit").value;
           const { id, first_name, last_name, username } =
             window.Telegram.WebApp.initDataUnsafe.user;
-          let chat = window.Telegram.WebApp.initDataUnsafe.chat;
+          // let chat = window.Telegram.WebApp.initDataUnsafe.chat;
           let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
-          let chatInstance = window.Telegram.WebApp.initDataUnsafe.chatInstance;
+          // let chatInstance = window.Telegram.WebApp.initDataUnsafe.chatInstance;
           let init_data = window.Telegram.WebApp.initDataUnsafe;
           // console.log(Telegram.WebApp.initDataUnsafe.user);
           // console.log(startParam);
@@ -976,7 +977,7 @@
                   dare_id: startParam,
                   amount: amount,
                   created_by: id,
-                  initData: initData,
+                  init_data: init_data,
                   //  name: title,
                   // description: description,
                   // multiplier: multiplier,
