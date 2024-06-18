@@ -941,8 +941,8 @@
           const ontrack = document.getElementById("ontrack").value;
           // const challengelimit =
           //   document.getElementById("challengelimit").value;
-          const { id, first_name, last_name, username } =
-            window.Telegram.WebApp.initDataUnsafe.user;
+          // const { id, first_name, last_name, username } =
+          //   window.Telegram.WebApp.initDataUnsafe.user;
           // let chat = window.Telegram.WebApp.initDataUnsafe.chat;
           let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
           // let chatInstance = window.Telegram.WebApp.initDataUnsafe.chatInstance;
@@ -963,7 +963,7 @@
           ) {
             // let datetime = new Date(deadline);
             // let today = new Date();
-            let challengebad = isNaN(amount);
+            
 
             
               let url =
@@ -974,7 +974,6 @@
                   dare_id: startParam,
                   text: text,
                   ontrack: ontrack,
-                  created_by: id,
                   init_data: init_data,
                   //  name: title,
                   // description: description,
