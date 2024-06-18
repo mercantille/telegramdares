@@ -482,10 +482,10 @@
       </div>
       <button
         id="main_btn"
-        onclick="DemoApp.createDare();"
+        onclick="DemoApp.sendReport();"
         style="display: none"
       >
-        Create new Dare
+        Send Report
       </button>
 
       <!-- <button id="with_webview_btn" onclick="DemoApp.sendMessage('', true);">
@@ -712,9 +712,9 @@
           document.body.style.visibility = "";
           Telegram.WebApp.ready();
           Telegram.WebApp.MainButton.setParams({
-            text: "Create new Challenge!",
+            text: "Send update",
             is_visible: false,
-          }).onClick(DemoApp.createDare);
+          }).onClick(DemoApp.sendReport);
         },
         expand() {
           Telegram.WebApp.expand();
@@ -932,7 +932,7 @@
             });
         },
 
-        async createDare() {
+        async sendReport() {
           // const title = document.getElementById("title").value;
           // const description = document.getElementById("description").value;
           // const deadline = document.getElementById("deadline").value;
@@ -954,22 +954,18 @@
           // console.log(challengelimit);
           // console.log(multiplier);
           if (
-            (amount != "",
+            text != ""
             //  &&
             // description != "" &&
             // deadline != "" &&
             // challengelimit != ""
             // &&
-            id != "")
           ) {
             // let datetime = new Date(deadline);
             // let today = new Date();
             let challengebad = isNaN(amount);
 
-            if (false) WebApp.showAlert("Date can't be today!");
-            else if (challengebad)
-              WebApp.showAlert("Challenge amount must be a number!");
-            else {
+            
               let url =
                 "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/report-progress";
               let params = {
@@ -1027,7 +1023,7 @@
               // .catch(function (error) {
               //   onCallback && onCallback({ error: "Server error" });
               // });
-            }
+            
           } else console.log("tried");
         },
 
