@@ -147,6 +147,15 @@
         text-transform: uppercase;
       }
 
+      .cafe-order-header {
+        font-size: 17px;
+        line-height: 21px;
+        text-transform: uppercase;
+        flex-grow: 1;
+        padding: 0;
+        margin: 0;
+      }
+
       .cafe-text-field {
         font-family: var(--default-font);
         font-size: 17px;
@@ -227,6 +236,7 @@
         display: flex;
         flex-direction: column;
         margin-top: 16px;
+        background-color: var(--block-bg-color);
       }
 
       .row {
@@ -330,15 +340,15 @@
       section {
         /* padding: 15px; */
 
-        background-color: var(--bg-color, #ffffff);
+        /* background-color: var(--bg-color, #ffffff); */
       }
 
       section#top_sect {
-        background-color: var(--tg-theme-bg-color, #ffffff);
+        /* background-color: var(--tg-theme-bg-color, #ffffff); */
       }
 
       section#top_sect.second {
-        background-color: var(--tg-theme-bg-color, #fff);
+        /* background-color: var(--tg-theme-bg-color, #fff); */
       }
 
       /* section .sect_row {
@@ -478,8 +488,8 @@
 
   <body class="dark" style="visibility: hidden" onload="DemoApp.loadDetails()">
     <section id="top_sect" class="second order-mode">
-      <div class="block cafe-block">
-        <span class="header">Report progress</span>
+      <div class="block">
+        <span class="cafe-order-header">Report progress</span>
         <span class="currency header" id="name"
           >Tell your challengers how it's going with your dare! All users who
           challenged this dare will receive an update</span
