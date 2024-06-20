@@ -57,11 +57,6 @@
         cursor: default;
       }
 
-      .cafe-block {
-        background-color: var(--block-bg-color);
-        -webkit-box-shadow: 0 0.5px rgba(0, 0, 0, 0.07);
-        box-shadow: 0 0.5px rgba(0, 0, 0, 0.07);
-      }
       html.dark body {
         --block-bg-color: var(--tg-theme-bg-color);
         --bg-color: var(--tg-theme-secondary-bg-color, #0f0f0f);
@@ -333,7 +328,7 @@
       }
 
       section {
-        padding: 15px;
+        /* padding: 15px; */
 
         background-color: var(--bg-color, #ffffff);
       }
@@ -394,6 +389,10 @@
         -webkit-font-smoothing: antialiased;
         padding: 10px 20px 24px;
         color: var(--hint-color);
+      }
+
+      order-mode {
+        background-color: var(--bg-color);
       }
       /* #fixed_wrap {
         position: fixed;
@@ -478,7 +477,7 @@
   </head>
 
   <body class="dark" style="visibility: hidden" onload="DemoApp.loadDetails()">
-    <section id="top_sect" class="second">
+    <section id="top_sect" class="second order-mode">
       <div class="block cafe-block">
         <span class="header">Report progress</span>
         <span class="currency header" id="name"
