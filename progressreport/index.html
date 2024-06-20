@@ -204,6 +204,10 @@
         color: var(--hint-color);
       }
 
+      .subheader {
+        padding: 4px 0px !important
+      }
+
       .cafe-block {
         background-color: var(--block-bg-color);
         -webkit-box-shadow: 0 0.5px rgba(0, 0, 0, 0.07);
@@ -229,7 +233,18 @@
         border-color: #000;
       }
 
+      input {
+
+      }
       .header {
+        line-height: 21px;
+        text-transform: uppercase;
+        flex-grow: 1;
+        padding: 0;
+        margin: 0;
+        font-weight: bold;
+        margin-top: 16px;
+        margin-bottom: 4px;
         left: 0;
         float: left;
         font-size: 14px !important;
@@ -309,6 +324,14 @@
         border-radius: 4px;
         color: var(--tg-theme-text-color, #222222);
         text-align: start;
+      }
+
+      input[type="checkbox"] {
+        box-sizing: border-box;
+        font-size: 29px;
+      }
+      label[for="ontrack"] {
+        font-size: 17px;
       }
 
       input[type="text"]::-webkit-input-placeholder {
@@ -493,14 +516,15 @@
 
   <body class="dark" style="visibility: hidden" onload="DemoApp.loadDetails()">
     <section id="top_sect" class="second order-mode">
+
       <div class="block">
         <span class="cafe-order-header">Report progress</span>
-        <span class="currency header" id="name"
+        <span class="cafe-text-field-hint subheader" 
           >Tell your challengers how it's going with your dare! All users who
           challenged this dare will receive an update</span
         >
-</div>
-        <div class="block">
+
+
           <span class="header">Status</span>
           <div class="inputandsub">
             <input
@@ -512,6 +536,7 @@
             />
             <label for="ontrack">On track</label><br />
           </div>
+        </div>
         </div>
         <div >
 
