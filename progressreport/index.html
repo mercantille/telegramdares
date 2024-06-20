@@ -23,14 +23,52 @@
     </script>
     <style>
       body {
-        --bg-color: var(--tg-theme-bg-color, #fff);
-        font-family: sans-serif;
-        background-color: var(--bg-color);
-        color: var(--tg-theme-button-text-color, #222);
-        font-size: 14px;
+        font-family: var(--default-font);
+        font-size: 13px;
+        line-height: 16px;
+        font-weight: 400;
+        background-color: var(--block-bg-color);
+        color: var(--text-color);
+        color-scheme: var(--tg-color-scheme);
         margin: 0;
         padding: 0;
-        color-scheme: var(--tg-color-scheme);
+        width: 1px;
+        min-width: 100%;
+
+        --default-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+        --block-bg-color: var(--tg-theme-bg-color);
+        --bg-color: var(--tg-theme-secondary-bg-color, #ebedf0);
+        --animation: 0.15s ease;
+        --page-animation-duration: 0.3s;
+        --page-animation: var(--page-animation-duration) ease;
+        --status-height: 48px;
+        --accent-color: #31b545;
+        --main-color: #f8a917;
+        --text-color: #222;
+        --page-hint-color: #83878a;
+        --hint-color: #74787a;
+        --placeholder-color: #999da1;
+        --ripple-duration: 0.45s;
+        --ripple-end-duration: 0.3s;
+        -webkit-user-select: none;
+        user-select: none;
+        cursor: default;
+      }
+
+      .cafe-block {
+        background-color: var(--block-bg-color);
+        -webkit-box-shadow: 0 0.5px rgba(0, 0, 0, 0.07);
+        box-shadow: 0 0.5px rgba(0, 0, 0, 0.07);
+      }
+      html.dark body {
+        --block-bg-color: var(--tg-theme-bg-color);
+        --bg-color: var(--tg-theme-secondary-bg-color, #0f0f0f);
+        --text-color: #fff;
+        --page-hint-color: #9b9ba1;
+        --hint-color: #64666d;
+        --placeholder-color: #5d6163;
       }
 
       body.gray {
@@ -114,6 +152,56 @@
         text-transform: uppercase;
       }
 
+      .cafe-text-field {
+        font-family: var(--default-font);
+        font-size: 17px;
+        line-height: 21px;
+        -webkit-font-smoothing: antialiased;
+        padding: 12px 20px 13px;
+        box-sizing: border-box;
+        display: block;
+        outline: none;
+        border: none;
+        border-radius: 0;
+        resize: none;
+        color: var(--text-color);
+        -webkit-user-select: auto;
+        user-select: auto;
+        cursor: auto;
+        width: 100%;
+      }
+      .cafe-text-field::-webkit-input-placeholder {
+        transition: color var(--animation);
+        color: var(--placeholder-color);
+        text-overflow: ellipsis;
+      }
+      .cafe-text-field::-moz-placeholder {
+        transition: color var(--animation);
+        color: var(--placeholder-color);
+        text-overflow: ellipsis;
+      }
+      .cafe-text-field:-ms-input-placeholder {
+        transition: color var(--animation);
+        color: var(--placeholder-color);
+        text-overflow: ellipsis;
+      }
+      .cafe-text-field::placeholder {
+        text-overflow: ellipsis;
+      }
+      .cafe-text-field-hint {
+        font-family: var(--default-font);
+        font-size: 14px;
+        line-height: 18px;
+        -webkit-font-smoothing: antialiased;
+        padding: 10px 20px 24px;
+        color: var(--hint-color);
+      }
+
+      .cafe-block {
+        background-color: var(--block-bg-color);
+        -webkit-box-shadow: 0 0.5px rgba(0, 0, 0, 0.07);
+        box-shadow: 0 0.5px rgba(0, 0, 0, 0.07);
+      }
       .small {
         width: 40vw !important;
         padding: 8px !important;
@@ -296,6 +384,17 @@
         display: none;
       }
 
+      .cafe-text-field-wrap {
+        margin-top: 14px;
+      }
+      .cafe-text-field-hint {
+        font-family: var(--default-font);
+        font-size: 14px;
+        line-height: 18px;
+        -webkit-font-smoothing: antialiased;
+        padding: 10px 20px 24px;
+        color: var(--hint-color);
+      }
       /* #fixed_wrap {
         position: fixed;
         left: 0;
@@ -382,25 +481,43 @@
     <section id="top_sect" class="second">
       <div class="block">
         <span class="header">Report progress</span>
-        <span class="currency header" id="name">Tell your challengers how it's going with your dare! All users who challenged this dare will receive an update</span>
-      
-      <div class="block">
-        <span class="header">Status</span>
-        <div class="inputandsub">
-          <input
-            type="checkbox"
-            id="ontrack"
-            class="checkbox"
-            name="On track"
-            value="onTrack"
-          />
-          <label for="ontrack">On track</label><br />
+        <span class="currency header" id="name"
+          >Tell your challengers how it's going with your dare! All users who
+          challenged this dare will receive an update</span
+        >
+
+        <div class="block">
+          <span class="header">Status</span>
+          <div class="inputandsub">
+            <input
+              type="checkbox"
+              id="ontrack"
+              class="checkbox"
+              name="On track"
+              value="onTrack"
+            />
+            <label for="ontrack">On track</label><br />
+          </div>
         </div>
-      </div>
-      <div class="block">
-        <span class="header">Tell about your progress</span>
-        <div class="inputandsub">
-          <input
+        <div class="block">
+          <span class="header">Tell about your progress</span>
+          <!-- <div class="inputandsub"> -->
+          <div class="cafe-text-field-wrap"></div>
+          <textarea
+            class="cafe-text-field js-order-comment-field cafe-block"
+            rows="1"
+            style="overflow: hidden; overflow-wrap: break-word; height: 46px"
+            onkeyup="DemoApp.buttonstatus()"
+            onkeydown="DemoApp.buttonstatus()"
+            onchange="DemoApp.buttonstatus()"
+            onpaste="DemoApp.buttonstatus()"
+            id="text"
+            placeholder="How is it going?"
+          ></textarea>
+          <div class="cafe-text-field-hint">
+            Any special requests, details, final wishes etc.
+          </div>
+          <!-- <input
             type="text"
             class="wide"
             ,
@@ -410,7 +527,7 @@
             onkeydown="DemoApp.buttonstatus()"
             onchange="DemoApp.buttonstatus()"
             onpaste="DemoApp.buttonstatus()"
-          />
+          /> -->
         </div>
       </div>
       <!-- <div class="block">
@@ -963,66 +1080,63 @@
           ) {
             // let datetime = new Date(deadline);
             // let today = new Date();
-            
 
-            
-              let url =
-                "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/report-progress";
-              let params = {
-                method: "POST",
-                body: JSON.stringify({
-                  dare_id: startParam,
-                  text: text,
-                  ontrack: ontrack,
-                  init_data: init_data,
-                  //  name: title,
-                  // description: description,
-                  // multiplier: multiplier,
-                  // completion_deadline: datetime,
-                  // maximum_bet: challengelimit,
-                  // created_by: id,
-                }),
-                headers: {
-                  "Content-Type": "application/json-patch+json",
-                  "Access-Control-Allow-Origin": "*",
-                  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-                  "ngrok-skip-browser-warning": true,
-                },
-              };
-              await fetch(url, params)
-                .then(async function (response) {
-                  if (response.ok) {
-                    console.log(response);
-                    DemoApp.showAlert("Report Sent!");
-                    Telegram.WebApp.close();
-                  } else {
-                    resp = await response.json();
-                    console.log(resp);
-                    switch (Object.keys(resp.error.details)[0]) {
-                      case "CompletionDeadline":
-                        console.log("Date must be later than today!");
-                        DemoApp.showAlert("Date must be later than today!");
-                        return;
-                      default:
-                        console.log("unknown error");
-                        DemoApp.showAlert("Unknown Error!");
-                        return;
-                    }
+            let url =
+              "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/report-progress";
+            let params = {
+              method: "POST",
+              body: JSON.stringify({
+                dare_id: startParam,
+                text: text,
+                ontrack: ontrack,
+                init_data: init_data,
+                //  name: title,
+                // description: description,
+                // multiplier: multiplier,
+                // completion_deadline: datetime,
+                // maximum_bet: challengelimit,
+                // created_by: id,
+              }),
+              headers: {
+                "Content-Type": "application/json-patch+json",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+                "ngrok-skip-browser-warning": true,
+              },
+            };
+            await fetch(url, params)
+              .then(async function (response) {
+                if (response.ok) {
+                  console.log(response);
+                  DemoApp.showAlert("Report Sent!");
+                  Telegram.WebApp.close();
+                } else {
+                  resp = await response.json();
+                  console.log(resp);
+                  switch (Object.keys(resp.error.details)[0]) {
+                    case "CompletionDeadline":
+                      console.log("Date must be later than today!");
+                      DemoApp.showAlert("Date must be later than today!");
+                      return;
+                    default:
+                      console.log("unknown error");
+                      DemoApp.showAlert("Unknown Error!");
+                      return;
                   }
-                })
-                .catch(function (error) {
-                  console.log("caught");
-                  console.log(error);
-                  // DemoApp.showAlert("something is wrong");
-                });
-              // )
-              // .then(function (result) {
-              //   onCallback && onCallback(result);
-              // })
-              // .catch(function (error) {
-              //   onCallback && onCallback({ error: "Server error" });
-              // });
-            
+                }
+              })
+              .catch(function (error) {
+                console.log("caught");
+                console.log(error);
+                // DemoApp.showAlert("something is wrong");
+              });
+            // )
+            // .then(function (result) {
+            //   onCallback && onCallback(result);
+            // })
+            // .catch(function (error) {
+            //   onCallback && onCallback({ error: "Server error" });
+            // });
           } else console.log("tried");
         },
 
