@@ -899,6 +899,7 @@
             .then(async function (response) {
               if (response.ok) {
                 resp = await response.json();
+                console.log(dareID);
                 console.log(resp);
                 // DemoApp.showAlert("Loaded!");
                 // document.getElementById("name").textContent =
