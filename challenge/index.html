@@ -11,6 +11,7 @@
     <meta name="MobileOptimized" content="176" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="robots" content="noindex,nofollow" />
+    <link rel="stylesheet" href="../styles.css" />
     <title></title>
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
     <script>
@@ -399,9 +400,9 @@
       <div class="block">
         <span class="header">Amount</span>
         <div class="inputandsub">
-          <input
+          <textarea
             type="number"
-            class="small number"
+            class="cafe-text-field js-order-comment-field cafe-block"
             ,
             id="amount"
             placeholder="How much will you bet?"
@@ -409,7 +410,7 @@
             onkeydown="DemoApp.buttonstatus()"
             onchange="DemoApp.buttonstatus()"
             onpaste="DemoApp.buttonstatus()"
-          />
+          ></textarea>
           <span class="currency">€</span>
         </div>
       </div>
