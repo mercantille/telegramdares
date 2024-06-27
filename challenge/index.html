@@ -168,7 +168,7 @@
       .block {
         display: flex;
         flex-direction: column;
-        margin-top: 16px;
+        /* margin-top: 16px; */
       }
 
       .row {
@@ -270,8 +270,6 @@
       }
 
       section {
-        padding: 15px;
-
         /* background-color: var(--bg-color, #ffffff); */
       }
 
@@ -406,6 +404,7 @@
   <body class="dark" style="visibility: hidden" onload="DemoApp.loadDetails()">
     <section id="top_sect" class="second order-mode">
       <div class="block">
+        <span class="cafe-order-header">Challenge Dare</span>
         <span class="header">Dare</span>
         <span class="currency header" id="name" style="margin-bottom: 8px"
           >Loading...</span
@@ -430,7 +429,7 @@
         >
       </div>
 
-      <span class="header">Bet amount</span>
+      <span class="header" style="padding-left: 20px">Bet amount</span>
 
       <textarea
         class="cafe-text-field js-order-comment-field cafe-block"
@@ -438,7 +437,7 @@
           overflow: hidden;
           overflow-wrap: break-word;
           height: 48px;
-          padding-left: 0 !important;
+          padding-left: 20px !important;
         "
         id="amount"
         rows="1"
@@ -448,11 +447,7 @@
         onchange="DemoApp.buttonstatus()"
         onpaste="DemoApp.buttonstatus()"
       ></textarea>
-      <div
-        id="hint"
-        class="cafe-text-field-hint"
-        style="padding-left: 0 !important"
-      >
+      <div id="hint" class="cafe-text-field-hint">
         You will pay your bet amount if they succeed. You will win bet amount x
         multiplier if they fail.
       </div>
