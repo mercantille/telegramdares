@@ -382,7 +382,7 @@
   <body class="popup" style="visibility: hidden" onload="DemoApp.loadDetails()">
     <section id="top_sect" class="second">
       <div class="block">
-        <span class="header">Name</span>
+        <span class="header">Dare</span>
         <span class="currency header" id="name">Loading...</span>
       </div>
       <div class="block">
@@ -390,28 +390,40 @@
         <span class="currency" id="description">Loading...</span>
       </div>
       <div class="block">
-        <span class="header">Multiplier</span>
-        <span class="currency multiplier" id="multiplier">Loading...</span>
-      </div>
-      <div class="block">
         <span class="header">Created by</span>
         <span class="currency multiplier" id="created_by">Loading...</span>
       </div>
       <div class="block">
-        <span class="header">Amount</span>
-        <div class="inputandsub">
-          <textarea
-            type="number"
-            class="cafe-text-field js-order-comment-field cafe-block"
-            ,
-            id="amount"
-            placeholder="How much will you bet?"
-            onkeyup="DemoApp.buttonstatus()"
-            onkeydown="DemoApp.buttonstatus()"
-            onchange="DemoApp.buttonstatus()"
-            onpaste="DemoApp.buttonstatus()"
-          ></textarea>
-          <span class="currency">€</span>
+        <span class="header">Multiplier</span>
+        <span class="currency multiplier" id="multiplier">Loading...</span>
+      </div>
+
+      <div class="block">
+        <span class="header">Bet amount</span>
+
+        <textarea
+          class="cafe-text-field js-order-comment-field cafe-block"
+          style="
+            overflow: hidden;
+            overflow-wrap: break-word;
+            height: 48px;
+            padding-left: 0 !important;
+          "
+          id="amount"
+          rows="1"
+          placeholder="How much will you bet?"
+          onkeyup="DemoApp.buttonstatus()"
+          onkeydown="DemoApp.buttonstatus()"
+          onchange="DemoApp.buttonstatus()"
+          onpaste="DemoApp.buttonstatus()"
+        ></textarea>
+        <div
+          id="hint"
+          class="cafe-text-field-hint"
+          style="padding-left: 0 !important"
+        >
+          You will pay your bet amount if they succeed. You will win bet amount
+          x multiplier if they fail.
         </div>
       </div>
       <!-- <div class="block">
@@ -881,6 +893,7 @@
             body: JSON.stringify({
               init_data: data,
               dare_ids: [dareID],
+              telegram_info: "Users",
               //  name: title,
               // description: description,
               // multiplier: multiplier,
@@ -901,6 +914,7 @@
                 resp = await response.json();
                 console.log(dareID);
                 console.log(resp);
+                console.log(resp.data.dares);
                 // DemoApp.showAlert("Loaded!");
                 // document.getElementById("name").textContent =
                 //   resp.data.dares[0].name;
@@ -911,7 +925,17 @@
                 document.getElementById("multiplier").textContent =
                   resp.data.dares[0].multiplier;
                 document.getElementById("created_by").textContent =
-                  resp.data.dares[0].created_by;
+                  resp.data.dares[0].creator.username;
+                if (document.getElementById("amount").value != "")
+                  document.getElementById("hint").textContent =
+                    "You will pay " +
+                    resp.data.dares[0].creator.username +
+                    " " +
+                    document.getElementById("amount").value +
+                    " if they succeed. You will win " +
+                    parseInt(resp.data.dares[0].multiplier, 10) *
+                      parseInt(document.getElementById("amount").value) +
+                    " if they fail.";
               } else {
                 resp = await response.json();
                 console.log(resp);
