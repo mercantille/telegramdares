@@ -918,24 +918,16 @@
                 // DemoApp.showAlert("Loaded!");
                 // document.getElementById("name").textContent =
                 //   resp.data.dares[0].name;
-                document.getElementById("name").textContent = username;
+                document.getElementById("name").textContent =
+                  resp.data.dares[0].name;
                 // document.getElementById("description").textContent =
                 //   resp.data.dares[0].description;
-                document.getElementById("description").textContent = data;
+                document.getElementById("description").textContent =
+                  resp.data.dares[0].description;
                 document.getElementById("multiplier").textContent =
                   resp.data.dares[0].multiplier;
                 document.getElementById("created_by").textContent =
                   resp.data.dares[0].creator.username;
-                if (document.getElementById("amount").value != "")
-                  document.getElementById("hint").textContent =
-                    "You will pay " +
-                    resp.data.dares[0].creator.username +
-                    " " +
-                    document.getElementById("amount").value +
-                    " if they succeed. You will win " +
-                    parseInt(resp.data.dares[0].multiplier, 10) *
-                      parseInt(document.getElementById("amount").value) +
-                    " if they fail.";
               } else {
                 resp = await response.json();
                 console.log(resp);
@@ -1061,6 +1053,8 @@
           // let challengelimit = document.getElementById("challengelimit").value;
           // let deadline = document.getElementById("deadline").value;
           let amount = document.getElementById("amount").value;
+          let username = document.getElementById("created_by").textContent;
+          let multiplier = document.getElementById("multiplier").textContent;
           // console.log(title, description, challengelimit, deadline);
 
           if (amount == "") {
@@ -1069,6 +1063,17 @@
           } else {
             document.getElementById("main_btn").disabled = false;
             Telegram.WebApp.MainButton.show();
+            if (
+              document.getElementById("multiplier").textContent != "Loading..."
+            )
+              document.getElementById("hint").textContent =
+                "You will pay " +
+                username +
+                " " +
+                amount +
+                " if they succeed. You will win " +
+                parseInt(multiplier, 10) * parseInt(amount, 10) +
+                " if they fail.";
           }
         },
 
