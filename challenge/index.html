@@ -24,14 +24,38 @@
     </script>
     <style>
       body {
-        --bg-color: var(--tg-theme-bg-color, #fff);
-        font-family: sans-serif;
+        font-family: var(--default-font);
+        font-size: 13px;
+        line-height: 16px;
+        font-weight: 400;
         background-color: var(--bg-color);
-        color: var(--tg-theme-button-text-color, #222);
-        font-size: 14px;
+        color: var(--text-color);
+        color-scheme: var(--tg-color-scheme);
         margin: 0;
         padding: 0;
-        color-scheme: var(--tg-color-scheme);
+        width: 1px;
+        min-width: 100%;
+
+        --default-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+        --block-bg-color: var(--tg-theme-bg-color);
+        --bg-color: var(--tg-theme-secondary-bg-color, #ebedf0);
+        --animation: 0.15s ease;
+        --page-animation-duration: 0.3s;
+        --page-animation: var(--page-animation-duration) ease;
+        --status-height: 48px;
+        --accent-color: #31b545;
+        --main-color: #f8a917;
+        --text-color: #222;
+        --page-hint-color: #83878a;
+        --hint-color: #74787a;
+        --placeholder-color: #999da1;
+        --ripple-duration: 0.45s;
+        --ripple-end-duration: 0.3s;
+        -webkit-user-select: none;
+        user-select: none;
+        cursor: default;
       }
 
       body.gray {
@@ -248,15 +272,15 @@
       section {
         padding: 15px;
 
-        background-color: var(--bg-color, #ffffff);
+        /* background-color: var(--bg-color, #ffffff); */
       }
 
       section#top_sect {
-        background-color: var(--tg-theme-bg-color, #ffffff);
+        /* background-color: var(--tg-theme-bg-color, #ffffff); */
       }
 
       section#top_sect.second {
-        background-color: var(--tg-theme-bg-color, #fff);
+        /* background-color: var(--tg-theme-bg-color, #fff); */
       }
 
       /* section .sect_row {
@@ -383,43 +407,56 @@
     <section id="top_sect" class="second order-mode">
       <div class="block">
         <span class="header">Dare</span>
-        <span class="currency header" id="name">Loading...</span>
-        <span class="header">Description</span>
-        <span class="currency" id="description">Loading...</span>
-        <span class="header">Created by</span>
-        <span class="currency multiplier" id="created_by">Loading...</span>
-        <span class="header">Multiplier</span>
-        <span class="currency multiplier" id="multiplier">Loading...</span>
-      </div>
-
-      <div class="block">
-        <span class="header">Bet amount</span>
-
-        <textarea
-          class="cafe-text-field js-order-comment-field cafe-block"
-          style="
-            overflow: hidden;
-            overflow-wrap: break-word;
-            height: 48px;
-            padding-left: 0 !important;
-          "
-          id="amount"
-          rows="1"
-          placeholder="How much will you bet?"
-          onkeyup="DemoApp.buttonstatus()"
-          onkeydown="DemoApp.buttonstatus()"
-          onchange="DemoApp.buttonstatus()"
-          onpaste="DemoApp.buttonstatus()"
-        ></textarea>
-        <div
-          id="hint"
-          class="cafe-text-field-hint"
-          style="padding-left: 0 !important"
+        <span class="currency header" id="name" style="margin-bottom: 8px"
+          >Loading...</span
         >
-          You will pay your bet amount if they succeed. You will win bet amount
-          x multiplier if they fail.
-        </div>
+        <span class="header">Description</span>
+        <span class="currency" id="description" style="margin-bottom: 8px"
+          >Loading...</span
+        >
+        <span class="header">Created by</span>
+        <span
+          class="currency multiplier"
+          id="created_by"
+          style="margin-bottom: 8px"
+          >Loading...</span
+        >
+        <span class="header">Multiplier</span>
+        <span
+          class="currency multiplier"
+          id="multiplier"
+          style="margin-bottom: 8px"
+          >Loading...</span
+        >
       </div>
+
+      <span class="header">Bet amount</span>
+
+      <textarea
+        class="cafe-text-field js-order-comment-field cafe-block"
+        style="
+          overflow: hidden;
+          overflow-wrap: break-word;
+          height: 48px;
+          padding-left: 0 !important;
+        "
+        id="amount"
+        rows="1"
+        placeholder="How much will you bet?"
+        onkeyup="DemoApp.buttonstatus()"
+        onkeydown="DemoApp.buttonstatus()"
+        onchange="DemoApp.buttonstatus()"
+        onpaste="DemoApp.buttonstatus()"
+      ></textarea>
+      <div
+        id="hint"
+        class="cafe-text-field-hint"
+        style="padding-left: 0 !important"
+      >
+        You will pay your bet amount if they succeed. You will win bet amount x
+        multiplier if they fail.
+      </div>
+
       <!-- <div class="block">
         <span class="header">Description</span>
         <textarea
