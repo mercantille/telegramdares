@@ -908,6 +908,7 @@
         },
 
         async loadDetails() {
+          console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
           let dareID = window.Telegram.WebApp.initDataUnsafe.start_param;
           const { id, first_name, last_name, username } =
             window.Telegram.WebApp.initDataUnsafe.user;
