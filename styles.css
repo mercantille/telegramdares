@@ -209,6 +209,21 @@ button.close_btn {
   border-color: #000;
 }
 
+.inputandsub {
+  gap: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  height: 16px;
+  transform: scale(1.3);
+}
+label[for="ontrack"] {
+  font-size: 15px;
+}
+
 img {
   margin-top: 16px;
   position: relative;
