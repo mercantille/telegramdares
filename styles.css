@@ -290,9 +290,9 @@ select {
   height: 32px;
   width: 20vw;
   padding: 4px;
-  border: none;
+  border: 0;
   border-radius: 4px;
-  background: url(Select.png) no-repeat right;
+  /* background: url(Select.png) no-repeat right; */
   /* border: 1px solid 4F2EFE; */
 }
 
