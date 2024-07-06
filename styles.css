@@ -287,10 +287,12 @@ img {
   color: #909090;
 }
 
-select {
+select,
+input[type="select"] {
   margin-top: 8px;
   height: 32px;
   width: 20vw;
+  border: 1px solid 4F2EFE;
 }
 
 input[type="text"],
@@ -355,6 +357,14 @@ input[type="text"]:-ms-input-placeholder {
   overflow: hidden;
   pointer-events: none;
   z-index: -1;
+}
+
+input[type="date"] {
+  display: block;
+  height: 40px;
+  font-size: 14px;
+  width: 50%;
+  border: 1px solid #4f2efe;
 }
 
 section {
