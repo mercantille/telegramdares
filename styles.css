@@ -267,15 +267,6 @@ img {
   gap: 24px;
 }
 
-.date {
-  margin-top: 8px;
-  width: 33vw;
-  /* height: 24px; */
-  border-radius: 4px;
-  border-width: 1px;
-  padding: 8px;
-}
-
 .inputandsub {
   gap: 8px;
   display: flex;
@@ -363,13 +354,14 @@ input[type="text"]:-ms-input-placeholder {
 }
 
 input[type="date"] {
+  padding: 8px;
   display: block;
-  height: 24px;
-  font-size: 14px;
+  height: 24px !important;
+  font-size: 14px !important;
   width: 50%;
   border: none;
   outline: none;
-  background-color: var(--tg-theme-bg-color, #ffffff);
+  /* background-color: var(--tg-theme-bg-color, #ffffff); */
   /* border: 1px solid #4f2efe; */
 }
 
