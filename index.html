@@ -463,24 +463,20 @@
           onpaste="DemoApp.buttonstatus()"
         />
       </div>
-      <span class="header" style="padding-left: 20px; margin-top: 28px;">Multiplier</span>
-
-      <textarea
-        class="cafe-text-field js-order-comment-field cafe-block"
-        style="
-          overflow: hidden;
-          overflow-wrap: break-word;
-          height: 40px;
-          padding-left: 20px !important;
-        "
-        id="multiplier"
-        rows="1"
-        placeholder="Multiplier for lost dares payouts"
-        onkeyup="DemoApp.buttonstatus()"
-        onkeydown="DemoApp.buttonstatus()"
-        onchange="DemoApp.buttonstatus()"
-        onpaste="DemoApp.buttonstatus()"
-      ></textarea>
+      <div class="block"> 
+      <span class="header" ">Multiplier</span>
+          <select id="multiplier">
+            <option value="2" selected>2x</option>
+            <option value="3">3x</option>
+            <option value="4">4x</option>
+            <option value="5">5x</option>
+            <option value="6">6x</option>
+            <option value="8">8x</option>
+            <option value="10">10x</option>
+            <!-- <option value="4x" id="bg_color_val">custom...</option> -->
+          </select>
+    </div>  
+     
       <div id="hint" class="cafe-text-field-hint">
         You will have to pay the sum of all challenges times this multiplier if you fail the dare
       </div>
