@@ -292,7 +292,7 @@ select {
   padding: 4px;
   border: none;
   border-radius: 4px;
-  background: url(Select.png) no-repeat right white;
+  background: url(Select.png) no-repeat right;
   /* border: 1px solid 4F2EFE; */
 }
 
