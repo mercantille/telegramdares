@@ -145,7 +145,7 @@ button.close_btn {
   display: block;
   border-top: 0;
   /* outline-bottom: 4px solid var(--tg-theme-link-color, #d2d2d2); */
-  border-bottom: 4px solid var(--tg-theme-link-color, #d2d2d2);
+  border-bottom: 2px solid var(--tg-theme-link-color, #d2d2d2);
   border-radius: 0;
   resize: none;
   color: var(--text-color);
@@ -187,7 +187,7 @@ button.close_btn {
 }
 
 .cafe-block {
-  background-color: var(--block-bg-color);
+  /* background-color: none; */
   -webkit-box-shadow: 0 0.5px rgba(0, 0, 0, 0.07);
   box-shadow: 0 0.5px rgba(0, 0, 0, 0.07);
 }
