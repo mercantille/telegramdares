@@ -889,6 +889,7 @@
             let datetime = new Date(deadline).toISOString();
             let today = new Date();
             let challengebad = isNaN(challengelimit);
+            let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
             if (false) WebApp.showAlert("Date can't be today!");
             else if (challengebad)
               WebApp.showAlert("Challenge Limit must be a number!");
@@ -902,6 +903,7 @@
                   description: description,
                   multiplier: multiplier,
                   completion_deadline: datetime,
+                  timezone: timezone,
                   maximum_bet: challengelimit,
                   created_by: id,
                   init_data: initData,

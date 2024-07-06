@@ -405,7 +405,7 @@
     <section id="top_sect" class="second order-mode">
       <div class="block" style="background-color: var(--bg-color); margin-bottom: -16px;">
         <!-- <span class="cafe-order-header">Challenge Dare</span> -->
-        <img src="challenge.png"></img>
+        <img src="Challenge.png"></img>
         <span class="header">Dare</span>
         <span class="currency header" id="name" style="margin-bottom: 8px"
           >Loading...</span
@@ -953,10 +953,8 @@
                   resp.data.dares[0].name;
                 // document.getElementById("description").textContent =
                 //   resp.data.dares[0].description;
-                // document.getElementById("description").textContent =
-                //   resp.data.dares[0].description;
-                  document.getElementById("description").textContent =
-                  Intl.DateTimeFormat().resolvedOptions().timeZone;
+                document.getElementById("description").textContent =
+                  resp.data.dares[0].description;
                 document.getElementById("multiplier").textContent =
                   resp.data.dares[0].multiplier;
                 document.getElementById("created_by").textContent =

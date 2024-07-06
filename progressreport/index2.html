@@ -11,7 +11,6 @@
     <meta name="MobileOptimized" content="176" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="robots" content="noindex,nofollow" />
-    <link rel="stylesheet" href="../styles.css" />
     <title></title>
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
     <script>
@@ -58,6 +57,15 @@
         cursor: default;
       }
 
+      html.dark body {
+        --block-bg-color: var(--tg-theme-bg-color);
+        --bg-color: var(--tg-theme-secondary-bg-color, #0f0f0f);
+        --text-color: #fff;
+        --page-hint-color: #9b9ba1;
+        --hint-color: #64666d;
+        --placeholder-color: #5d6163;
+      }
+
       body.gray {
         background-color: var(--tg-theme-secondary-bg-color, #efefef);
       }
@@ -67,15 +75,15 @@
       }
 
       /* .btn {
-        font-size: 14px;
-        padding: 10px 17px;
-      }
+              font-size: 14px;
+              padding: 10px 17px;
+            }
 
-      .btn-primary {
-        background-color: var(--tg-theme-button-color, #50a8eb);
-        color: var(--tg-theme-button-text-color, #fff);
-        border: none;
-      } */
+            .btn-primary {
+              background-color: var(--tg-theme-button-color, #50a8eb);
+              color: var(--tg-theme-button-text-color, #fff);
+              border: none;
+            } */
 
       button {
         display: block;
@@ -95,16 +103,16 @@
       }
 
       /* .list-header {
-        text-transform: uppercase;
-        font-size: 0.92em;
-        color: var(--tg-theme-hint-color, #ccc);
-        margin: 0 0 10px;
-      } */
+              text-transform: uppercase;
+              font-size: 0.92em;
+              color: var(--tg-theme-hint-color, #ccc);
+              margin: 0 0 10px;
+            } */
 
       /* a.list-group-item,
-      button.list-group-item {
-        color: var(--tg-theme-text-color, #222);
-      } */
+            button.list-group-item {
+              color: var(--tg-theme-text-color, #222);
+            } */
 
       .main-container p {
         margin: 0 0 10px;
@@ -139,6 +147,72 @@
         text-transform: uppercase;
       }
 
+      .cafe-order-header {
+        font-size: 17px;
+        line-height: 21px;
+        text-transform: uppercase;
+        flex-grow: 1;
+        padding: 0;
+        margin: 0;
+        font-weight: bold;
+        /* margin-block-end: 0.83em; */
+        margin-block-start: 0.83em;
+      }
+
+      .cafe-text-field {
+        font-family: var(--default-font);
+        font-size: 17px;
+        line-height: 21px;
+        -webkit-font-smoothing: antialiased;
+        padding: 12px 20px 13px;
+        box-sizing: border-box;
+        display: block;
+        outline: none;
+        border: none;
+        border-radius: 0;
+        resize: none;
+        color: var(--text-color);
+        -webkit-user-select: auto;
+        user-select: auto;
+        cursor: auto;
+        width: 100%;
+      }
+      .cafe-text-field::-webkit-input-placeholder {
+        transition: color var(--animation);
+        color: var(--placeholder-color);
+        text-overflow: ellipsis;
+      }
+      .cafe-text-field::-moz-placeholder {
+        transition: color var(--animation);
+        color: var(--placeholder-color);
+        text-overflow: ellipsis;
+      }
+      .cafe-text-field:-ms-input-placeholder {
+        transition: color var(--animation);
+        color: var(--placeholder-color);
+        text-overflow: ellipsis;
+      }
+      .cafe-text-field::placeholder {
+        text-overflow: ellipsis;
+      }
+      .cafe-text-field-hint {
+        font-family: var(--default-font);
+        font-size: 14px;
+        line-height: 18px;
+        -webkit-font-smoothing: antialiased;
+        padding: 10px 20px 24px;
+        color: var(--hint-color);
+      }
+
+      .subheader {
+        padding: 4px 0px !important
+      }
+
+      .cafe-block {
+        background-color: var(--block-bg-color);
+        -webkit-box-shadow: 0 0.5px rgba(0, 0, 0, 0.07);
+        box-shadow: 0 0.5px rgba(0, 0, 0, 0.07);
+      }
       .small {
         width: 40vw !important;
         padding: 8px !important;
@@ -159,16 +233,28 @@
         border-color: #000;
       }
 
+
       .header {
+        line-height: 21px;
+        text-transform: uppercase;
+        flex-grow: 1;
+        padding: 0;
+        margin: 0;
+        font-weight: bold;
+        margin-top: 16px;
+        margin-bottom: 4px;
         left: 0;
         float: left;
         font-size: 14px !important;
       }
 
       .block {
+        padding: 12px 20px 13px;
+        /* margin-top: 14px; */
         display: flex;
         flex-direction: column;
-        /* margin-top: 16px; */
+        margin-bottom: 20px;
+        background-color: var(--block-bg-color, #5866e2);
       }
 
       .row {
@@ -209,6 +295,7 @@
       input[type="text"],
       .input[contenteditable],
       textarea {
+        height: 80px;
         display: block;
         box-sizing: border-box;
         font-size: 14px;
@@ -236,6 +323,14 @@
         border-radius: 4px;
         color: var(--tg-theme-text-color, #222222);
         text-align: start;
+      }
+
+      input[type="checkbox"] {
+        height: 16px;
+        transform: scale(1.3);
+      }
+      label[for="ontrack"] {
+        font-size: 15px;
       }
 
       input[type="text"]::-webkit-input-placeholder {
@@ -270,6 +365,8 @@
       }
 
       section {
+        /* padding: 15px; */
+
         /* background-color: var(--bg-color, #ffffff); */
       }
 
@@ -282,118 +379,133 @@
       }
 
       /* section .sect_row {
-        margin: 10px 0;
-      }
+              margin: 10px 0;
+            }
 
-      section + section {
-        padding: 0 15px 65px;
-      } */
+            section + section {
+              padding: 0 15px 65px;
+            } */
 
       /* .dark pre {
-        background: rgba(255, 255, 255, 0.15);
-      } */
+              background: rgba(255, 255, 255, 0.15);
+            } */
 
       /* .chat_img {
-        width: 30px;
-        border-radius: 15px;
-        margin-right: 10px;
-      }
+              width: 30px;
+              border-radius: 15px;
+              margin-right: 10px;
+            }
 
-      .columns {
-        display: flex;
-      }
+            .columns {
+              display: flex;
+            }
 
-      .columns > * {
-        flex-grow: 1;
-      } */
+            .columns > * {
+              flex-grow: 1;
+            } */
 
       /* .ok {
-        color: green;
-      }
+              color: green;
+            }
 
-      .err {
-        color: red;
-      } */
+            .err {
+              color: red;
+            } */
 
       .status_need {
         display: none;
       }
 
-      /* #fixed_wrap {
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        transform: translateY(100vh);
+      .cafe-text-field-wrap {
+        /* margin-top: 14px; */
+      }
+      .cafe-text-field-hint {
+        font-family: var(--default-font);
+        font-size: 14px;
+        line-height: 18px;
+        -webkit-font-smoothing: antialiased;
+        padding: 10px 20px 24px;
+        color: var(--hint-color);
       }
 
-      .viewport-container {
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        height: var(--tg-viewport-stable-height, 100vh);
-        transition: height 0.2s ease;
-      } */
+      order-mode {
+        background-color: var(--bg-color);
+      }
+      /* #fixed_wrap {
+              position: fixed;
+              left: 0;
+              right: 0;
+              top: 0;
+              transform: translateY(100vh);
+            }
+
+            .viewport-container {
+              position: fixed;
+              left: 0;
+              right: 0;
+              top: 0;
+              height: var(--tg-viewport-stable-height, 100vh);
+              transition: height 0.2s ease;
+            } */
 
       /* .viewport-container .main-container {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: 0;
+              bottom: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
 
-      .viewport-container .main-container button {
-        width: auto;
-      }
+            .viewport-container .main-container button {
+              width: auto;
+            }
 
-      .viewport-border,
-      .viewport-stable_border {
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        height: var(--tg-viewport-height, 100vh);
-        pointer-events: none;
-      }
+            .viewport-border,
+            .viewport-stable_border {
+              position: fixed;
+              left: 0;
+              right: 0;
+              top: 0;
+              height: var(--tg-viewport-height, 100vh);
+              pointer-events: none;
+            }
 
-      .viewport-stable_border {
-        height: var(--tg-viewport-stable-height, 100vh);
-      } */
+            .viewport-stable_border {
+              height: var(--tg-viewport-stable-height, 100vh);
+            } */
 
       /* .viewport-border:before,
-      .viewport-stable_border:before {
-        content: attr(text);
-        display: inline-block;
-        position: absolute;
-        right: 0;
-        top: 0;
-        font-size: 12px;
-        padding: 2px 4px;
-        vertical-align: top;
-      } */
+            .viewport-stable_border:before {
+              content: attr(text);
+              display: inline-block;
+              position: absolute;
+              right: 0;
+              top: 0;
+              font-size: 12px;
+              padding: 2px 4px;
+              vertical-align: top;
+            } */
 
       /* .viewport-stable_border:before {
 
-        left: 0;
-        right: auto;
-      } */
+              left: 0;
+              right: auto;
+            } */
 
       /* .viewport-border:after,
-      .viewport-stable_border:after {
-        content: "";
-        display: block;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-       
-      } */
+            .viewport-stable_border:after {
+              content: "";
+              display: block;
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: 0;
+              bottom: 0;
+
+            } */
 
       small {
         font-size: 12px;
@@ -403,37 +515,17 @@
 
   <body class="dark" style="visibility: hidden" onload="DemoApp.loadDetails()">
     <section id="top_sect" class="second order-mode">
-      <div class="block" style="background-color: var(--bg-color); margin-bottom: -16px;">
-        <!-- <span class="cafe-order-header">Challenge Dare</span> -->
-        <img src="Report.png"></img>
+
+      <div class="block">
+         <img src="challenge.png"></img>
         <span class="cafe-order-header">Report progress</span>
         <span class="cafe-text-field-hint subheader" 
           >Tell your challengers how it's going with your dare! All users who
           challenged this dare will receive an update</span
         >
-        <span class="header">Dare</span>
-        <span class="currency header" id="name" style="margin-bottom: 8px"
-          >Loading...</span
-        >
-        <span class="header">Description</span>
-        <span class="currency" id="description" style="margin-bottom: 8px"
-          >Loading...</span
-        >
-        <span class="header">Created by</span>
-        <span
-          class="currency multiplier"
-          id="created_by"
-          style="margin-bottom: 8px"
-          >Loading...</span
-        >
-        <span class="header">Multiplier</span>
-        <span
-          class="currency multiplier"
-          id="multiplier"
-          style="margin-bottom: 8px"
-          >Loading...</span
-        >
-        <span class="header">Status</span>
+
+
+          <span class="header">Status</span>
           <div class="inputandsub">
             <input
               type="checkbox"
@@ -444,30 +536,39 @@
             />
             <label for="ontrack">On track</label><br />
           </div>
-      </div>
-      
-      <span class="header" style="padding-left: 20px">Bet amount</span>
+        </div>
+        </div>
+        <div >
 
-      <textarea
-        class="cafe-text-field js-order-comment-field cafe-block"
-        style="
-          overflow: hidden;
-          overflow-wrap: break-word;
-          height: 56px;
-          padding-left: 20px !important;
-        "
-        id="amount"
-        rows="1"
-        placeholder="How is it going?"
-        onkeyup="DemoApp.buttonstatus()"
-        onkeydown="DemoApp.buttonstatus()"
-        onchange="DemoApp.buttonstatus()"
-        onpaste="DemoApp.buttonstatus()"
-      ></textarea>
-      <div id="hint" class="cafe-text-field-hint">
-        Tell the world about your progress. 
+          <!-- <div class="inputandsub"> -->
+          <div class="cafe-text-field-wrap"></div>
+          <textarea
+            class="cafe-text-field js-order-comment-field cafe-block"
+            rows="1"
+            style="overflow: hidden; overflow-wrap: break-word; height: 80px"
+            onkeyup="DemoApp.buttonstatus()"
+            onkeydown="DemoApp.buttonstatus()"
+            onchange="DemoApp.buttonstatus()"
+            onpaste="DemoApp.buttonstatus()"
+            id="text"
+            placeholder="How is it going?"
+          ></textarea>
+          <div class="cafe-text-field-hint">
+            Tell us about your progress
+          </div>
+          <!-- <input
+            type="text"
+            class="wide"
+            ,
+            id="text"
+            placeholder="How is it going?"
+            onkeyup="DemoApp.buttonstatus()"
+            onkeydown="DemoApp.buttonstatus()"
+            onchange="DemoApp.buttonstatus()"
+            onpaste="DemoApp.buttonstatus()"
+          /> -->
+        </div>
       </div>
-
       <!-- <div class="block">
         <span class="header">Description</span>
         <textarea
@@ -537,10 +638,10 @@
       </div>
       <button
         id="main_btn"
-        onclick="DemoApp.createDare();"
+        onclick="DemoApp.sendReport();"
         style="display: none"
       >
-        Create new Dare
+        Send Report
       </button>
 
       <!-- <button id="with_webview_btn" onclick="DemoApp.sendMessage('', true);">
@@ -767,9 +868,9 @@
           document.body.style.visibility = "";
           Telegram.WebApp.ready();
           Telegram.WebApp.MainButton.setParams({
-            text: "Create new Challenge!",
+            text: "Send update",
             is_visible: false,
-          }).onClick(DemoApp.createDare);
+          }).onClick(DemoApp.sendReport);
         },
         expand() {
           Telegram.WebApp.expand();
@@ -923,15 +1024,12 @@
         },
 
         async loadDetails() {
-          // console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
-          // const urlParams = new URLSearchParams(document.location.search);
-          // console.log(urlParams.get("dare_id"));
-          // let dareID = urlParams.get("dare_id");
           let dareID = window.Telegram.WebApp.initDataUnsafe.start_param;
           const { id, first_name, last_name, username } =
             window.Telegram.WebApp.initDataUnsafe.user;
           let chatInstance = window.Telegram.WebApp.initDataUnsafe.chatInstance;
           let data = window.Telegram.WebApp.initDataUnsafe;
+       
           let url =
             "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/query";
           let params = {
@@ -939,7 +1037,6 @@
             body: JSON.stringify({
               init_data: data,
               dare_ids: [dareID],
-              telegram_info: "Users",
               //  name: title,
               // description: description,
               // multiplier: multiplier,
@@ -958,22 +1055,18 @@
             .then(async function (response) {
               if (response.ok) {
                 resp = await response.json();
-                console.log(dareID);
                 console.log(resp);
-                console.log(resp.data.dares);
                 // DemoApp.showAlert("Loaded!");
                 // document.getElementById("name").textContent =
                 //   resp.data.dares[0].name;
-                document.getElementById("name").textContent =
-                  resp.data.dares[0].name;
+                document.getElementById("name").textContent = username;
                 // document.getElementById("description").textContent =
                 //   resp.data.dares[0].description;
-                document.getElementById("description").textContent =
-                  resp.data.dares[0].description;
+                document.getElementById("description").textContent = data;
                 document.getElementById("multiplier").textContent =
                   resp.data.dares[0].multiplier;
                 document.getElementById("created_by").textContent =
-                  resp.data.dares[0].creator.username;
+                  resp.data.dares[0].created_by;
               } else {
                 resp = await response.json();
                 console.log(resp);
@@ -996,100 +1089,94 @@
             });
         },
 
-        async createDare() {
+        async sendReport() {
           // const title = document.getElementById("title").value;
           // const description = document.getElementById("description").value;
           // const deadline = document.getElementById("deadline").value;
           // const multiplier = document.getElementById("multiplier").value;
-          const amount = document.getElementById("amount").value;
+          const text = document.getElementById("text").value;
+          const ontrack = document.getElementById("ontrack").value;
           // const challengelimit =
           //   document.getElementById("challengelimit").value;
-          const { id, first_name, last_name, username } =
-            window.Telegram.WebApp.initDataUnsafe.user;
+          // const { id, first_name, last_name, username } =
+          //   window.Telegram.WebApp.initDataUnsafe.user;
           // let chat = window.Telegram.WebApp.initDataUnsafe.chat;
           let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
           // let chatInstance = window.Telegram.WebApp.initDataUnsafe.chatInstance;
           let init_data = window.Telegram.WebApp.initDataUnsafe;
           // console.log(Telegram.WebApp.initDataUnsafe.user);
           // console.log(startParam);
-          // console.lo g(description);
+          // console.log(description);
           // console.log(deadline);
           // console.log(challengelimit);
           // console.log(multiplier);
           if (
-            (amount != "",
+            text != ""
             //  &&
             // description != "" &&
             // deadline != "" &&
             // challengelimit != ""
             // &&
-            id != "")
           ) {
             // let datetime = new Date(deadline);
             // let today = new Date();
-            let challengebad = isNaN(amount);
 
-            if (false) WebApp.showAlert("Date can't be today!");
-            else if (challengebad)
-              WebApp.showAlert("Challenge amount must be a number!");
-            else {
-              let url =
-                "https://constantly-flexible-platypus.ngrok-free.app/api/v1/challenge/create";
-              let params = {
-                method: "POST",
-                body: JSON.stringify({
-                  dare_id: startParam,
-                  amount: amount,
-                  created_by: id,
-                  init_data: init_data,
-                  //  name: title,
-                  // description: description,
-                  // multiplier: multiplier,
-                  // completion_deadline: datetime,
-                  // maximum_bet: challengelimit,
-                  // created_by: id,
-                }),
-                headers: {
-                  "Content-Type": "application/json-patch+json",
-                  "Access-Control-Allow-Origin": "*",
-                  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-                  "ngrok-skip-browser-warning": true,
-                },
-              };
-              await fetch(url, params)
-                .then(async function (response) {
-                  if (response.ok) {
-                    console.log(response);
-                    DemoApp.showAlert("Challenge created!");
-                    Telegram.WebApp.close();
-                  } else {
-                    resp = await response.json();
-                    console.log(resp);
-                    switch (Object.keys(resp.error.details)[0]) {
-                      case "CompletionDeadline":
-                        console.log("Date must be later than today!");
-                        DemoApp.showAlert("Date must be later than today!");
-                        return;
-                      default:
-                        console.log("unknown error");
-                        DemoApp.showAlert("Unknown Error!");
-                        return;
-                    }
+            let url =
+              "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/report-progress";
+            let params = {
+              method: "POST",
+              body: JSON.stringify({
+                dare_id: startParam,
+                text: text,
+                ontrack: ontrack,
+                init_data: init_data,
+                //  name: title,
+                // description: description,
+                // multiplier: multiplier,
+                // completion_deadline: datetime,
+                // maximum_bet: challengelimit,
+                // created_by: id,
+              }),
+              headers: {
+                "Content-Type": "application/json-patch+json",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+                "ngrok-skip-browser-warning": true,
+              },
+            };
+            await fetch(url, params)
+              .then(async function (response) {
+                if (response.ok) {
+                  console.log(response);
+                  DemoApp.showAlert("Report Sent!");
+                  Telegram.WebApp.close();
+                } else {
+                  resp = await response.json();
+                  console.log(resp);
+                  switch (Object.keys(resp.error.details)[0]) {
+                    case "CompletionDeadline":
+                      console.log("Date must be later than today!");
+                      DemoApp.showAlert("Date must be later than today!");
+                      return;
+                    default:
+                      console.log("unknown error");
+                      DemoApp.showAlert("Unknown Error!");
+                      return;
                   }
-                })
-                .catch(function (error) {
-                  console.log("caught");
-                  console.log(error);
-                  // DemoApp.showAlert("something is wrong");
-                });
-              // )
-              // .then(function (result) {
-              //   onCallback && onCallback(result);
-              // })
-              // .catch(function (error) {
-              //   onCallback && onCallback({ error: "Server error" });
-              // });
-            }
+                }
+              })
+              .catch(function (error) {
+                console.log("caught");
+                console.log(error);
+                // DemoApp.showAlert("something is wrong");
+              });
+            // )
+            // .then(function (result) {
+            //   onCallback && onCallback(result);
+            // })
+            // .catch(function (error) {
+            //   onCallback && onCallback({ error: "Server error" });
+            // });
           } else console.log("tried");
         },
 
@@ -1098,28 +1185,15 @@
           // let description = document.getElementById("description").value;
           // let challengelimit = document.getElementById("challengelimit").value;
           // let deadline = document.getElementById("deadline").value;
-          let amount = document.getElementById("amount").value;
-          let username = document.getElementById("created_by").textContent;
-          let multiplier = document.getElementById("multiplier").textContent;
+          let text = document.getElementById("text").value;
           // console.log(title, description, challengelimit, deadline);
 
-          if (amount == "") {
+          if (text == "") {
             document.getElementById("main_btn").disabled = true;
             Telegram.WebApp.MainButton.hide();
           } else {
             document.getElementById("main_btn").disabled = false;
             Telegram.WebApp.MainButton.show();
-            if (
-              document.getElementById("multiplier").textContent != "Loading..."
-            )
-              document.getElementById("hint").textContent =
-                "You will pay " +
-                username +
-                " " +
-                amount +
-                " if they succeed. You will win " +
-                parseInt(multiplier, 10) * parseInt(amount, 10) +
-                " if they fail.";
           }
         },
 
