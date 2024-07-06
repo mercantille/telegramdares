@@ -886,7 +886,7 @@
             // &&
             // id != ""
           ) {
-            let datetime = new Date(deadline);
+            let datetime = new Date(deadline).toISOString();
             let today = new Date();
             let challengebad = isNaN(challengelimit);
             if (false) WebApp.showAlert("Date can't be today!");
