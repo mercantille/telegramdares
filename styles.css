@@ -284,6 +284,9 @@ input[type="select"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  ox-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   margin-top: 8px;
   height: 32px;
   width: 20vw;
