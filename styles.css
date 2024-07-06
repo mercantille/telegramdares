@@ -281,6 +281,9 @@ img {
 
 select,
 input[type="select"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   margin-top: 8px;
   height: 32px;
   width: 20vw;
