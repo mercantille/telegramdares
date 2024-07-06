@@ -153,6 +153,7 @@ button.close_btn {
   cursor: auto;
   width: 100%;
 }
+
 .cafe-text-field::-webkit-input-placeholder {
   transition: color var(--animation);
   color: var(--placeholder-color);
@@ -176,7 +177,7 @@ button.close_btn {
   font-size: 14px;
   line-height: 18px;
   -webkit-font-smoothing: antialiased;
-  padding: 10px 20px 24px;
+  padding: 10px 20px 0px;
   color: var(--hint-color);
 }
 
@@ -269,10 +270,10 @@ img {
 .date {
   margin-top: 8px;
   width: 33vw;
-  height: 32px;
+  /* height: 24px; */
   border-radius: 4px;
   border-width: 1px;
-  border-color: #000;
+  padding: 8px;
 }
 
 .inputandsub {
@@ -292,6 +293,8 @@ input[type="select"] {
   margin-top: 8px;
   height: 32px;
   width: 20vw;
+  padding: 4px;
+
   /* border: 1px solid 4F2EFE; */
 }
 
@@ -361,9 +364,12 @@ input[type="text"]:-ms-input-placeholder {
 
 input[type="date"] {
   display: block;
-  height: 32px;
+  height: 24px;
   font-size: 14px;
   width: 50%;
+  border: none;
+  outline: none;
+  background-color: var(--tg-theme-bg-color, #ffffff);
   /* border: 1px solid #4f2efe; */
 }
 
@@ -421,14 +427,6 @@ section#top_sect.second {
 
 .cafe-text-field-wrap {
   /* margin-top: 14px; */
-}
-.cafe-text-field-hint {
-  font-family: var(--default-font);
-  font-size: 14px;
-  line-height: 18px;
-  -webkit-font-smoothing: antialiased;
-  padding: 10px 20px 24px;
-  color: var(--hint-color);
 }
 
 order-mode {
