@@ -11,6 +11,7 @@
     <meta name="MobileOptimized" content="176" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="robots" content="noindex,nofollow" />
+    <link rel="stylesheet" href="../styles.css" />
     <title></title>
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
     <script>
@@ -23,14 +24,38 @@
     </script>
     <style>
       body {
-        --bg-color: var(--tg-theme-bg-color, #fff);
-        font-family: sans-serif;
+        font-family: var(--default-font);
+        font-size: 13px;
+        line-height: 16px;
+        font-weight: 400;
         background-color: var(--bg-color);
-        color: var(--tg-theme-button-text-color, #222);
-        font-size: 14px;
+        color: var(--text-color);
+        color-scheme: var(--tg-color-scheme);
         margin: 0;
         padding: 0;
-        color-scheme: var(--tg-color-scheme);
+        width: 1px;
+        min-width: 100%;
+
+        --default-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+        --block-bg-color: var(--tg-theme-bg-color);
+        --bg-color: var(--tg-theme-secondary-bg-color, #ebedf0);
+        --animation: 0.15s ease;
+        --page-animation-duration: 0.3s;
+        --page-animation: var(--page-animation-duration) ease;
+        --status-height: 48px;
+        --accent-color: #31b545;
+        --main-color: #f8a917;
+        --text-color: #222;
+        --page-hint-color: #83878a;
+        --hint-color: #74787a;
+        --placeholder-color: #999da1;
+        --ripple-duration: 0.45s;
+        --ripple-end-duration: 0.3s;
+        -webkit-user-select: none;
+        user-select: none;
+        cursor: default;
       }
 
       body.gray {
@@ -129,9 +154,9 @@
 
       .wide {
         padding: 8px !important;
-        /* border-radius: 4px;
+        border-radius: 4px;
         border-width: 1px;
-        border-color: #000; */
+        border-color: #000;
       }
 
       .header {
@@ -143,7 +168,7 @@
       .block {
         display: flex;
         flex-direction: column;
-        margin-top: 16px;
+        /* margin-top: 16px; */
       }
 
       .row {
@@ -158,20 +183,11 @@
         margin-top: 8px;
         width: 33vw;
         height: 32px;
-        padding-left: 8px;
-        margin-top: 8px;
-        border: 1px solid var(--tg-theme-link-color, #000);
-        background-color: var(--tg-theme-bg-color, #ffffff);
         border-radius: 4px;
-        color: var(--tg-theme-text-color, #222222);
+        border-width: 1px;
+        border-color: #000;
       }
 
-      .inputandsub {
-        gap: 8px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-      }
 
       .currency {
         margin-top: 4px;
@@ -185,8 +201,6 @@
       }
 
       input[type="text"],
-      input[type=""],
-      textarea,
       .input[contenteditable],
       textarea {
         display: block;
@@ -219,15 +233,15 @@
       }
 
       input[type="text"]::-webkit-input-placeholder {
-        /* color: var(--tg-theme-hint-color, #ccc); */
+        color: var(--tg-theme-hint-color, #ccc);
       }
 
       input[type="text"]::-moz-placeholder {
-        /* color: var(--tg-theme-hint-color, #ccc); */
+        color: var(--tg-theme-hint-color, #ccc);
       }
 
       input[type="text"]:-ms-input-placeholder {
-        /* color: var(--tg-theme-hint-color, #ccc); */
+        color: var(--tg-theme-hint-color, #ccc);
       }
 
       .input[data-placeholder] {
@@ -250,17 +264,15 @@
       }
 
       section {
-        padding: 15px;
-
-        background-color: var(--bg-color, #ffffff);
+        /* background-color: var(--bg-color, #ffffff); */
       }
 
       section#top_sect {
-        background-color: var(--tg-theme-bg-color, #ffffff);
+        /* background-color: var(--tg-theme-bg-color, #ffffff); */
       }
 
       section#top_sect.second {
-        background-color: var(--tg-theme-bg-color, #fff);
+        /* background-color: var(--tg-theme-bg-color, #fff); */
       }
 
       /* section .sect_row {
@@ -380,29 +392,99 @@
       small {
         font-size: 12px;
       }
-
-      small {
-        font-size: 12px;
-      }
     </style>
   </head>
 
-  <body class="" style="visibility: hidden">
-    <section id="top_sect" class="second">
-      <div class="block">
-        <span class="header">Title</span>
+  <body class="dark" style="visibility: hidden" onload="DemoApp.loadDetails()">
+    <section id="top_sect" class="second order-mode">
+      <div class="block" style="background-color: var(--bg-color); margin-bottom: -16px;">
+        <!-- <span class="cafe-order-header">Challenge Dare</span> -->
+        <img src="Сreate.png"></img>
+        <span class="cafe-order-header">Create new dare</span>
+        <span class="cafe-text-field-hint subheader">
+
+        For each dare you must set up <span style="font-weight: 700; color: #4F2EFE;">bet limit</span> and a<span style="font-weight: 700; color: #4F2EFE;"> multiplier.</span> </br>
+        <span style="font-weight: 700; color: #4F2EFE;">Bet limit </span> is the total value of challenges people can send you without confirmation. </br>
+        If you successfully complete your dare, all challengers will pay you the challenge amount. If you lose, you will pay back challenges multiplied by the <span style="font-weight: 700; color: #4F2EFE;">multiplier</span>.
+        </span>
+       
+        
+      </div>
+      
+<span class="header" style="padding-left: 20px">Title</span>
+
+      <textarea
+        class="cafe-text-field js-order-comment-field cafe-block"
+        style="
+          overflow: hidden;
+          overflow-wrap: break-word;
+          height: 40px;
+          padding-left: 20px !important;
+        "
+        id="title"
+        rows="1"
+        placeholder="What's the name of your dare?"
+        onkeyup="DemoApp.buttonstatus()"
+        onkeydown="DemoApp.buttonstatus()"
+        onchange="DemoApp.buttonstatus()"
+        onpaste="DemoApp.buttonstatus()"
+      ></textarea>
+
+      <span class="header" style="padding-left: 20px">Description</span>
+
+      <textarea
+        class="cafe-text-field js-order-comment-field cafe-block"
+        style="
+          overflow: hidden;
+
+          overflow-wrap: break-word;
+          height: 40px;
+          padding-left: 20px !important;
+        "
+        id="description"
+        rows="1"
+        placeholder="What are you going to accomplish in more detail?"
+        onkeyup="DemoApp.buttonstatus()"
+        onkeydown="DemoApp.buttonstatus()"
+        onchange="DemoApp.buttonstatus()"
+        onpaste="DemoApp.buttonstatus()"
+      ></textarea>
+
+      <div style="display: flex; flex-direction: column; margin-left: 20px;">
+        <span class="header" >Deadline</span>
         <input
-          type="text"
-          class="small"
-          id="title"
-          placeholder="What will you do?"
+          class="date"
+          type="date"
+          placeholder="Input text in regular input..."
+          id="deadline"
           onkeyup="DemoApp.buttonstatus()"
           onkeydown="DemoApp.buttonstatus()"
           onchange="DemoApp.buttonstatus()"
           onpaste="DemoApp.buttonstatus()"
         />
       </div>
-      <div class="block">
+      
+<span class="header" style="padding-left: 20px; margin-top: 28px;">Bet limit without confirmation</span>
+
+      <textarea
+        class="cafe-text-field js-order-comment-field cafe-block"
+        style="
+          overflow: hidden;
+          overflow-wrap: break-word;
+          height: 40px;
+          padding-left: 20px !important;
+        "
+        id="challengelimit"
+        rows="1"
+        placeholder="Maximum total sum of challenges before every new challenge requires a confirm"
+        onkeyup="DemoApp.buttonstatus()"
+        onkeydown="DemoApp.buttonstatus()"
+        onchange="DemoApp.buttonstatus()"
+        onpaste="DemoApp.buttonstatus()"
+      ></textarea>
+      
+
+      <!-- <div class="block">
         <span class="header">Description</span>
         <textarea
           name="description"
@@ -416,7 +498,7 @@
           onchange="DemoApp.buttonstatus()"
           onpaste="DemoApp.buttonstatus()"
         ></textarea>
-      </div>
+      </div> -->
       <!-- <div id="peer_wrap" style="display: none">
         <img id="peer_photo" class="chat_img" src="" />
         <span id="peer_name"></span>
@@ -428,7 +510,7 @@
           <option value="secondary_bg_color">secondary_bg_color</option>
         </select>
       </div> -->
-      <div class="block">
+      <!-- <div class="block">
         Deadline
         <input
           class="date"
@@ -440,9 +522,9 @@
           onchange="DemoApp.buttonstatus()"
           onpaste="DemoApp.buttonstatus()"
         />
-      </div>
+      </div> -->
       <div class="row">
-        <div class="block">
+        <!-- <div class="block">
           <span class="header">Maximum total challenges</span>
           <input
             type="number"
@@ -454,9 +536,8 @@
             onchange="DemoApp.buttonstatus()"
             onpaste="DemoApp.buttonstatus()"
           />
-        </div>
-
-        <div class="block">
+        </div> -->
+        <!-- <div class="block">
           <span class="header">Multiplier</span>
           <select id="multiplier">
             <option value="2" selected>2x</option>
@@ -466,9 +547,9 @@
             <option value="6">6x</option>
             <option value="8">8x</option>
             <option value="10">10x</option>
-            <!-- <option value="4x" id="bg_color_val">custom...</option> -->
+        
           </select>
-        </div>
+        </div> -->
       </div>
       <button
         id="main_btn"
@@ -513,7 +594,7 @@
           >
           (opens inside Telegram app)
         </li>
-        <li>
+        <li>a
           <a href="javascript:Telegram.WebApp.openLink('https://google.com/');"
             >web_app_open_link()</a
           >

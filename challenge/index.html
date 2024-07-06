@@ -522,10 +522,10 @@
       </div>
       <button
         id="main_btn"
-        onclick="DemoApp.createDare();"
+        onclick="DemoApp.createChallenge();"
         style="display: none"
       >
-        Create new Dare
+        Challenge this dare!
       </button>
 
       <!-- <button id="with_webview_btn" onclick="DemoApp.sendMessage('', true);">
@@ -754,7 +754,7 @@
           Telegram.WebApp.MainButton.setParams({
             text: "Create new Challenge!",
             is_visible: false,
-          }).onClick(DemoApp.createDare);
+          }).onClick(DemoApp.createChallenge);
         },
         expand() {
           Telegram.WebApp.expand();
@@ -981,7 +981,7 @@
             });
         },
 
-        async createDare() {
+        async createChallenge() {
           // const title = document.getElementById("title").value;
           // const description = document.getElementById("description").value;
           // const deadline = document.getElementById("deadline").value;

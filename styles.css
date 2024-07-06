@@ -255,7 +255,7 @@ img {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  background-color: var(--block-bg-color, #5866e2);
+  /* background-color: var(--block-bg-color, #5866e2); */
 }
 
 .row {
