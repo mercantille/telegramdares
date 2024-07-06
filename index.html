@@ -395,7 +395,7 @@
     </style>
   </head>
 
-  <body class="dark" style="visibility: hidden" onload="DemoApp.loadDetails()">
+  <body class="dark" style="visibility: hidden" >
     <section id="top_sect" class="second order-mode">
       <div class="block" style="background-color: var(--bg-color); margin-bottom: -16px;">
         <!-- <span class="cafe-order-header">Challenge Dare</span> -->
@@ -463,25 +463,49 @@
           onpaste="DemoApp.buttonstatus()"
         />
       </div>
-      
-<span class="header" style="padding-left: 20px; margin-top: 28px;">Bet limit without confirmation</span>
+      <span class="header" style="padding-left: 20px; margin-top: 28px;">Multiplier</span>
 
       <textarea
         class="cafe-text-field js-order-comment-field cafe-block"
         style="
           overflow: hidden;
           overflow-wrap: break-word;
-          height: 64px;
+          height: 40px;
           padding-left: 20px !important;
         "
         id="challengelimit"
         rows="1"
-        placeholder="Maximum total sum of challenges before every new challenge requires a confirm"
+        placeholder="Multiplier for lost dares payouts"
         onkeyup="DemoApp.buttonstatus()"
         onkeydown="DemoApp.buttonstatus()"
         onchange="DemoApp.buttonstatus()"
         onpaste="DemoApp.buttonstatus()"
       ></textarea>
+      <div id="hint" class="cafe-text-field-hint">
+        You will have to pay the sum of all challenges times this multiplier if you fail the dare
+      </div>
+      
+<span class="header" style="padding-left: 20px; margin-top: 28px;">Bet limit </span>
+
+      <textarea
+        class="cafe-text-field js-order-comment-field cafe-block"
+        style="
+          overflow: hidden;
+          overflow-wrap: break-word;
+          height: 40px;
+          padding-left: 20px !important;
+        "
+        id="challengelimit"
+        rows="1"
+        placeholder="Limit before confirmation"
+        onkeyup="DemoApp.buttonstatus()"
+        onkeydown="DemoApp.buttonstatus()"
+        onchange="DemoApp.buttonstatus()"
+        onpaste="DemoApp.buttonstatus()"
+      ></textarea>
+      <div id="hint" class="cafe-text-field-hint">
+        Maximum total sum of challenges before every new challenge requires a confirm
+      </div>
       
 
       <!-- <div class="block">
