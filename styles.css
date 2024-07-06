@@ -279,8 +279,7 @@ img {
   color: #909090;
 }
 
-select,
-input[type="select"] {
+select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -291,7 +290,9 @@ input[type="select"] {
   height: 32px;
   width: 20vw;
   padding: 4px;
-
+  border: none;
+  border-radius: 4px;
+  background: url(Select.png) no-repeat right white;
   /* border: 1px solid 4F2EFE; */
 }
 
