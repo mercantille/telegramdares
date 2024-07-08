@@ -146,7 +146,8 @@ button.close_btn {
   border-top: 0;
   background-color: var(--tg-theme-secondary-bg-color, #ebedf0) !important;
   /* outline-bottom: 4px solid var(--tg-theme-link-color, #d2d2d2); */
-  border-bottom: 2px solid var(--tg-theme-link-color, #d2d2d2);
+  border: 0;
+  border-bottom: 1px solid var(--tg-theme-link-color, #d2d2d2);
   border-radius: 0;
   resize: none;
   color: var(--text-color);
@@ -310,7 +311,7 @@ textarea {
   width: 100%;
   padding: 12px 20px;
   margin-top: 8px;
-  border: 2px solid var(--tg-theme-link-color, #d2d2d2);
+  /* border: 1px solid var(--tg-theme-link-color, #d2d2d2); */
   /* background-color: var(--tg-theme-bg-color, #ffffff); */
   border-radius: 4px;
   color: var(--tg-theme-text-color, #222222);
