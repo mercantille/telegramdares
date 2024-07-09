@@ -135,26 +135,31 @@ button.close_btn {
   margin-block-start: 0.83em;
 }
 
+html.dark .cafe-text-field {
+  border-bottom: 1px solid rgba(223, 221, 239, 0.5);
+}
+
 .cafe-text-field {
   font-family: var(--default-font);
   font-size: 17px;
   line-height: 21px;
   -webkit-font-smoothing: antialiased;
-  padding: 12px 20px 13px;
+  padding: 12px 0px 13px;
   box-sizing: border-box;
   display: block;
   border-top: 0;
-  background-color: var(--tg-theme-bg-color, #ebedf0) !important;
+  background-color: var(--tg-theme-secondary-bg-color, #ebedf0) !important;
   /* outline-bottom: 4px solid var(--tg-theme-link-color, #d2d2d2); */
   border: 0;
-  border-bottom: 1px solid #4f2efe;
+  border-bottom: 1px solid #d1cedf;
   border-radius: 0;
   resize: none;
   color: var(--text-color);
   -webkit-user-select: auto;
   user-select: auto;
   cursor: auto;
-  width: 100%;
+  margin-left: 20px;
+  width: calc(100% - 40px);
 }
 
 .cafe-text-field::-webkit-input-placeholder {
@@ -303,17 +308,17 @@ select {
 input[type="text"],
 .input[contenteditable],
 textarea {
-  height: 80px;
+  /* height: 80px; */
   display: block;
   box-sizing: border-box;
   font-size: 14px;
   font-family: "Roboto";
-  width: 100%;
-  padding: 12px 20px;
+  /* width: 100%; */
+  /* padding: 12px 20px; */
   margin-top: 8px;
   /* border: 1px solid var(--tg-theme-link-color, #d2d2d2); */
   /* background-color: var(--tg-theme-bg-color, #ffffff); */
-  border-radius: 4px;
+
   color: var(--tg-theme-text-color, #222222);
   text-align: start;
 }
