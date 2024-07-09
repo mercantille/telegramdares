@@ -287,6 +287,10 @@ img {
   color: #909090;
 }
 
+html.dark select {
+  border: 0;
+}
+
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -298,7 +302,7 @@ select {
   height: 32px;
   width: 20vw;
   padding: 4px;
-  border: 0;
+  border: 0.5 solid #d1cedf;
   border-radius: 4px;
   webkit-border: 0;
   /* background: url(Select.png) no-repeat right; */
