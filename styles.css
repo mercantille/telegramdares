@@ -147,7 +147,7 @@ button.close_btn {
   background-color: var(--tg-theme-secondary-bg-color, #ebedf0) !important;
   /* outline-bottom: 4px solid var(--tg-theme-link-color, #d2d2d2); */
   border: 0;
-  border-bottom: 1.5px solid #4f2efe;
+  border-bottom: 1px solid #4f2efe;
   border-radius: 0;
   resize: none;
   color: var(--text-color);
