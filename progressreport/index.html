@@ -263,17 +263,7 @@
         z-index: -1;
       }
 
-      section {
-        /* background-color: var(--bg-color, #ffffff); */
-      }
 
-      section#top_sect {
-        /* background-color: var(--tg-theme-bg-color, #ffffff); */
-      }
-
-      section#top_sect.second {
-        /* background-color: var(--tg-theme-bg-color, #fff); */
-      }
 
       /* section .sect_row {
         margin: 10px 0;
@@ -979,7 +969,7 @@
           // const description = document.getElementById("description").value;
           // const deadline = document.getElementById("deadline").value;
           // const multiplier = document.getElementById("multiplier").value;
-          const text = document.getElementById("text").value;
+          const text = document.getElementById("amount").value;
           const ontrack = document.getElementById("ontrack").value;
           // const challengelimit =
           //   document.getElementById("challengelimit").value;
@@ -1079,17 +1069,17 @@
           } else {
             document.getElementById("main_btn").disabled = false;
             Telegram.WebApp.MainButton.show();
-            if (
-              document.getElementById("multiplier").textContent != "Loading..."
-            )
-              document.getElementById("hint").textContent =
-                "You will pay " +
-                username +
-                " " +
-                amount +
-                " if they succeed. You will win " +
-                parseInt(multiplier, 10) * parseInt(amount, 10) +
-                " if they fail.";
+            // if (
+            //   document.getElementById("multiplier").textContent != "Loading..."
+            // )
+            //   document.getElementById("hint").textContent =
+            //     "You will pay " +
+            //     username +
+            //     " " +
+            //     amount +
+            //     " if they succeed. You will win " +
+            //     parseInt(multiplier, 10) * parseInt(amount, 10) +
+            //     " if they fail.";
           }
         },
 
