@@ -735,9 +735,9 @@
           document.body.style.visibility = "";
           Telegram.WebApp.ready();
           Telegram.WebApp.MainButton.setParams({
-            text: "Create new Challenge!",
+            text: "Send Report",
             is_visible: false,
-          }).onClick(DemoApp.createDare);
+          }).onClick(DemoApp.sendReport);
         },
         expand() {
           Telegram.WebApp.expand();
