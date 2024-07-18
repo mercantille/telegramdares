@@ -261,17 +261,7 @@
         border-radius: 4px;
       }
 
-      section {
-        /* background-color: var(--bg-color, #ffffff); */
-      }
-
-      section#top_sect {
-        /* background-color: var(--tg-theme-bg-color, #ffffff); */
-      }
-
-      section#top_sect.second {
-        /* background-color: var(--tg-theme-bg-color, #fff); */
-      }
+  
 
       /* section .sect_row {
         margin: 10px 0;
@@ -479,6 +469,7 @@
 <span class="header" style="padding-left: 20px;">Bet limit </span>
 
       <textarea
+        type = "number"
         class="cafe-text-field js-order-comment-field cafe-block"
         style="
           overflow: hidden;
@@ -489,10 +480,10 @@
         id="challengelimit"
         rows="1"
         placeholder="Limit before confirmation"
-        onkeyup="DemoApp.buttonstatus()"
-        onkeydown="DemoApp.buttonstatus()"
-        onchange="DemoApp.buttonstatus()"
-        onpaste="DemoApp.buttonstatus()"
+        onkeyup="DemoApp.buttonstatus(), DemoApp.checkNumber()"
+        onkeydown="DemoApp.buttonstatus(), DemoApp.checkNumber()"
+        onchange="DemoApp.buttonstatus(), DemoApp.checkNumber()"
+        onpaste="DemoApp.buttonstatus(), DemoApp.checkNumber()"
       ></textarea>
       <div id="hint" class="cafe-text-field-hint">
         Maximum total sum of challenges before every new challenge requires a confirm
@@ -1052,6 +1043,20 @@
               // });
             }
           } else console.log("tried");
+        },
+
+         checkNumber() {
+          // let title = document.getElementById("title").value;
+          // let description = document.getElementById("description").value;
+          let challengelimit = document.getElementById("challengelimit").value;
+          // let deadline = document.getElementById("deadline").value;
+          console.log(challengelimit);
+          if (
+            isNaN(challengelimit)
+          ) {
+            challengelimit = challengelimit.slice(0, -1);
+            document,getElementById("challengelimit") = challengelimit;
+          } 
         },
 
         buttonstatus() {
