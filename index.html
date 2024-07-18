@@ -480,8 +480,6 @@
         id="challengelimit"
         rows="1"
         placeholder="Limit before confirmation"
-        onkeyup="DemoApp.buttonstatus(), DemoApp.checkNumber()"
-        onkeydown="DemoApp.buttonstatus(), DemoApp.checkNumber()"
         onchange="DemoApp.buttonstatus(), DemoApp.checkNumber()"
         onpaste="DemoApp.buttonstatus(), DemoApp.checkNumber()"
       ></textarea>
@@ -1054,8 +1052,8 @@
           if (
             isNaN(challengelimit)
           ) {
-            challengelimit = challengelimit.slice(0, -1);
-            document,getElementById("challengelimit") = challengelimit;
+            newstr = challengelimit.slice(0, -1);
+            document.getElementById("challengelimit").value = challengelimit;
           } 
         },
 
