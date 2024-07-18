@@ -478,10 +478,10 @@
         id="challengelimit"
         rows="1"
         placeholder="Limit before confirmation"
-        onkeyup="DemoApp.buttonstatus()"
-        onkeydown="DemoApp.buttonstatus()"
-        onchange="DemoApp.buttonstatus()"
-        onpaste="DemoApp.buttonstatus()"
+        onkeyup="DemoApp.buttonstatus(), DemoApp.checnNumber()"
+        onkeydown="DemoApp.buttonstatus(), DemoApp.checnNumber()"
+        onchange="DemoApp.buttonstatus(), DemoApp.checnNumber()"
+        onpaste="DemoApp.buttonstatus(), DemoApp.checnNumber()"
       ></textarea>
       <div id="hint" class="cafe-text-field-hint">
         Maximum total sum of challenges before every new challenge requires a confirm
@@ -1117,6 +1117,21 @@
               // });
             }
           } else console.log("tried");
+        },
+
+        checkNumber() {
+          // let title = document.getElementById("title").value;
+          // let description = document.getElementById("description").value;
+          let challengelimit = document.getElementById("challengelimit").value;
+          // let deadline = document.getElementById("deadline").value;
+          console.log(challengelimit);
+          if (
+            isNaN(challengelimit)
+          ) {
+            console.log("I'm here");
+            newstr = challengelimit.slice(0, -1);
+            document.getElementById("challengelimit").value = newstr;
+          } 
         },
 
         buttonstatus() {

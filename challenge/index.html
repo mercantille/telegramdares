@@ -269,17 +269,7 @@
         z-index: -1;
       }
 
-      section {
-        /* background-color: var(--bg-color, #ffffff); */
-      }
-
-      section#top_sect {
-        /* background-color: var(--tg-theme-bg-color, #ffffff); */
-      }
-
-      section#top_sect.second {
-        /* background-color: var(--tg-theme-bg-color, #fff); */
-      }
+  
 
       /* section .sect_row {
         margin: 10px 0;
@@ -443,10 +433,10 @@
         id="amount"
         rows="1"
         placeholder="How much will you bet?"
-        onkeyup="DemoApp.buttonstatus()"
-        onkeydown="DemoApp.buttonstatus()"
-        onchange="DemoApp.buttonstatus()"
-        onpaste="DemoApp.buttonstatus()"
+        onkeyup="DemoApp.buttonstatus(), DemoApp.checkNumber()"
+        onkeydown="DemoApp.buttonstatus(), DemoApp.checkNumber()"
+        onchange="DemoApp.buttonstatus(), DemoApp.checkNumber()"
+        onpaste="DemoApp.buttonstatus(), DemoApp.checkNumber()"
       ></textarea>
       <div id="hint" class="cafe-text-field-hint">
         You will pay your bet amount if they succeed. You will win bet amount x
@@ -1077,7 +1067,21 @@
             }
           } else console.log("tried");
         },
-
+        
+        checkNumber() {
+          // let title = document.getElementById("title").value;
+          // let description = document.getElementById("description").value;
+          let challengelimit = document.getElementById("amount").value;
+          // let deadline = document.getElementById("deadline").value;
+          console.log(challengelimit);
+          if (
+            isNaN(challengelimit)
+          ) {
+            console.log("I'm here");
+            newstr = challengelimit.slice(0, -1);
+            document.getElementById("amount").value = newstr;
+          } 
+        },
         buttonstatus() {
           // let title = document.getElementById("title").value;
           // let description = document.getElementById("description").value;
