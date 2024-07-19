@@ -975,7 +975,10 @@
           // const { id, first_name, last_name, username } =
           //   window.Telegram.WebApp.initDataUnsafe.user;
           // let chat = window.Telegram.WebApp.initDataUnsafe.chat;
-          let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
+          const urlParams = new URLSearchParams(document.location.search);
+          console.log(urlParams.get("dare_id"));
+          let dareID = urlParams.get("dare_id");
+          // let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
           // let chatInstance = window.Telegram.WebApp.initDataUnsafe.chatInstance;
           let init_data = window.Telegram.WebApp.initDataUnsafe;
           // console.log(Telegram.WebApp.initDataUnsafe.user);
@@ -996,13 +999,13 @@
             // let today = new Date();
 
             let url =
-              "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/report-progress";
+              "https://constantly-flexible-platypus.ngrok-free.app/api/v1/dare/mark-execution";
             let params = {
               method: "POST",
               body: JSON.stringify({
-                dare_id: startParam,
-                text: text,
-                ontrack: ontrack,
+                dare_id: dareID,
+                report: text,
+                is_executed: false,
                 init_data: init_data,
                 //  name: title,
                 // description: description,
