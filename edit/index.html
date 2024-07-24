@@ -944,10 +944,10 @@
 
         async loadDetails() {
           // console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
-          const urlParams = new URLSearchParams(document.location.search);
-          console.log(urlParams.get("dare_id"));
-          let dareID = urlParams.get("dare_id");
-          // let dareID = window.Telegram.WebApp.initDataUnsafe.start_param;
+          // const urlParams = new URLSearchParams(document.location.search);
+          // console.log(urlParams.get("dare_id"));
+          // let dareID = urlParams.get("dare_id");
+          let dareID = window.Telegram.WebApp.initDataUnsafe.start_param;
           const { id, first_name, last_name, username } =
             window.Telegram.WebApp.initDataUnsafe.user;
           let chatInstance = window.Telegram.WebApp.initDataUnsafe.chatInstance;
