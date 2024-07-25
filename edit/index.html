@@ -997,9 +997,8 @@
                   maxbet
                 document.getElementById("multiplier").value = multiplier;
                 console.log(new Date(date).toISOString().split("T")[0].slice(0,10));
-                // document.getElementById("deadline").value =
-                //   date.toISOString().split('T')[0].slice(0, 10);
-                
+                deadline = new Date(date).toISOString().split("T")[0].slice(0,10);
+                document.getElementById("deadline").value = deadline;
                 console.log(maxbet, multiplier, date);
                 // document.getElementById("multiplier").textContent = 
                 // resp.data.dares[0].maximum_bet
