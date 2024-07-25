@@ -995,9 +995,10 @@
                   resp.data.dares[0].description;
                 document.getElementById("challengelimit").value =
                   maxbet
-                document.getElementById("multiplier").value = multiplier
-                document.getElementById("deadline").value =
-                  date.toISOString().split('T')[0].slice(0, 10);
+                document.getElementById("multiplier").value = multiplier;
+                console.log(date.toISOString().split('T')[0].slice(0, 10));
+                // document.getElementById("deadline").value =
+                //   date.toISOString().split('T')[0].slice(0, 10);
                 
                 console.log(maxbet, multiplier, date);
                 // document.getElementById("multiplier").textContent = 
