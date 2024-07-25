@@ -997,7 +997,7 @@
                   maxbet
                 document.getElementById("multiplier").value = multiplier
                 document.getElementById("deadline").value =
-                  date
+                  date.toISOString().split('T')[0].slice(0, 10);
                 
                 console.log(maxbet, multiplier, date);
                 // document.getElementById("multiplier").textContent = 
