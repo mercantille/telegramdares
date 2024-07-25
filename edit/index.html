@@ -179,7 +179,6 @@
         gap: 24px;
       }
 
-
       .currency {
         margin-top: 4px;
         color: #909090;
@@ -190,8 +189,6 @@
         height: 32px;
         width: 20vw;
       }
-
-      
 
       input[type="number"],
       .input[contenteditable] {
@@ -249,19 +246,17 @@
         -moz-appearance: none;
         appearance: none;
         box-sizing: border-box;
-        -moz-box-sizing: border-box; 
+        -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
         padding: 8px;
         display: block;
         height: 35px;
         font-size: 14px !important;
         width: 50%;
-        border: 0.5px solid #D1CEDF;
+        border: 0.5px solid #d1cedf;
         outline: none;
         border-radius: 4px;
       }
-
-      
 
       /* section .sect_row {
         margin: 10px 0;
@@ -385,28 +380,24 @@
 
   <body class="dark" style="visibility: hidden" onload="DemoApp.loadDetails()">
     <section id="top_sect" class="second order-mode">
-      <div class="block" style="background-color: var(--bg-color); margin-bottom: -16px;">
+      <div
+        class="block"
+        style="background-color: var(--bg-color); margin-bottom: -16px"
+      >
         <!-- <span class="cafe-order-header">Challenge Dare</span> -->
-        <img src="Edit.png"></img>
+        <img src="Edit.png" />
         <span class="cafe-order-header">Edit dare</span>
         <span class="cafe-text-field-hint subheader">
-
-      Keep in mind:
-       this is only available before accepting the first challenge.
+          Keep in mind: this is only available before accepting the first
+          challenge.
         </span>
-       
-        
       </div>
-      
+
       <span class="header" style="padding-left: 20px">Title</span>
 
       <textarea
         class="cafe-text-field js-order-comment-field cafe-block"
-        style="
-          overflow: hidden;
-          overflow-wrap: break-word;
-          height: 48px;
-        "
+        style="overflow: hidden; overflow-wrap: break-word; height: 48px"
         id="title"
         rows="1"
         placeholder="What's the name of your dare?"
@@ -425,7 +416,6 @@
 
           overflow-wrap: break-word;
           height: 64px;
-
         "
         id="description"
         rows="1"
@@ -436,8 +426,8 @@
         onpaste="DemoApp.buttonstatus()"
       ></textarea>
 
-      <div style="display: flex; flex-direction: column; margin-left: 20px;">
-        <span class="header" >Deadline</span>
+      <div style="display: flex; flex-direction: column; margin-left: 20px">
+        <span class="header">Deadline</span>
         <input
           type="date"
           id="deadline"
@@ -448,36 +438,36 @@
           onpaste="DemoApp.buttonstatus()"
         />
       </div>
-      <div class="block" style="padding: 12px 20px 0px !important; margin-bottom: 0px !important;"> 
-      <span class="header" ">Multiplier</span>
-          <select id="multiplier" 
-          onchange="DemoApp.buttonstatus()" 
-          onclick="DemoApp.buttonstatus()" 
-          >
-            <option value="1.5">1.5x</option>
-            <option value="2" selected>2x</option>
-            <option value="3">3x</option>
-            <option value="4">4x</option>
-            <option value="5">5x</option>
-            <option value="10">10x</option>
-            <!-- <option value="4x" id="bg_color_val">custom...</option> -->
-          </select>
-    </div>  
-     
-      <div id="hint" class="cafe-text-field-hint">
-        You will have to pay the sum of all challenges times this multiplier if you fail the dare
+      <div
+        class="block"
+        style="padding: 12px 20px 0px !important; margin-bottom: 0px !important"
+      >
+        <span class="header">Multiplier</span>
+        <select
+          id="multiplier"
+          onchange="DemoApp.buttonstatus()"
+          onclick="DemoApp.buttonstatus()"
+        >
+          <option value="1.5">1.5x</option>
+          <option value="2" selected>2x</option>
+          <option value="3">3x</option>
+          <option value="4">4x</option>
+          <option value="5">5x</option>
+          <option value="10">10x</option>
+          <!-- <option value="4x" id="bg_color_val">custom...</option> -->
+        </select>
       </div>
-      
-<span class="header" style="padding-left: 20px;">Bet limit </span>
+
+      <div id="hint" class="cafe-text-field-hint">
+        You will have to pay the sum of all challenges times this multiplier if
+        you fail the dare
+      </div>
+
+      <span class="header" style="padding-left: 20px">Bet limit, € </span>
 
       <textarea
         class="cafe-text-field js-order-comment-field cafe-block"
-        style="
-          overflow: hidden;
-          overflow-wrap: break-word;
-          height: 48px;
-
-        "
+        style="overflow: hidden; overflow-wrap: break-word; height: 48px"
         id="challengelimit"
         rows="1"
         placeholder="Limit before confirmation"
@@ -487,17 +477,12 @@
         onpaste="DemoApp.buttonstatus(), DemoApp.checkNumber()"
       ></textarea>
       <div id="hint" class="cafe-text-field-hint">
-        Maximum total sum of challenges before every new challenge requires a confirm
+        Maximum total sum of challenges before every new challenge requires a
+        confirm
       </div>
-  
-      <div class="row">
-        
-      </div>
-      <button
-        id="main_btn"
-        onclick="DemoApp.editDare();"
-        style="display: none"
-      >
+
+      <div class="row"></div>
+      <button id="main_btn" onclick="DemoApp.editDare();" style="display: none">
         Create new Dare
       </button>
 
@@ -505,8 +490,7 @@
         Send «Hello, World!» with inline webview button
       </button> -->
     </section>
-  
-    
+
     <div class="viewport-border"></div>
     <div class="viewport-stable_border"></div>
 
@@ -717,8 +701,8 @@
             .then(async function (response) {
               if (response.ok) {
                 resp = await response.json();
-                let maxbet = resp.data.dares[0].maximum_bet
-                let multiplier = resp.data.dares[0].multiplier
+                let maxbet = resp.data.dares[0].maximum_bet;
+                let multiplier = resp.data.dares[0].multiplier;
                 let date = resp.data.dares[0].completion_deadline;
                 console.log(dareID);
                 console.log(resp);
@@ -732,14 +716,18 @@
                 //   resp.data.dares[0].description;
                 document.getElementById("description").textContent =
                   resp.data.dares[0].description;
-                document.getElementById("challengelimit").value =
-                  maxbet
+                document.getElementById("challengelimit").value = maxbet;
                 document.getElementById("multiplier").value = multiplier;
-                console.log(new Date(date).toISOString().split("T")[0].slice(0,10));
-                deadline = new Date(date).toISOString().split("T")[0].slice(0,10);
+                console.log(
+                  new Date(date).toISOString().split("T")[0].slice(0, 10)
+                );
+                deadline = new Date(date)
+                  .toISOString()
+                  .split("T")[0]
+                  .slice(0, 10);
                 document.getElementById("deadline").value = deadline;
                 console.log(maxbet, multiplier, date);
-                // document.getElementById("multiplier").textContent = 
+                // document.getElementById("multiplier").textContent =
                 // resp.data.dares[0].maximum_bet
               } else {
                 resp = await response.json();
@@ -807,7 +795,7 @@
                 method: "POST",
                 body: JSON.stringify({
                   dare_id: dareID,
-                  name:title,
+                  name: title,
                   description: description,
                   multiplier: multiplier,
                   completion_deadline: datetime,
@@ -872,13 +860,11 @@
           let challengelimit = document.getElementById("challengelimit").value;
           // let deadline = document.getElementById("deadline").value;
           console.log(challengelimit);
-          if (
-            isNaN(challengelimit)
-          ) {
+          if (isNaN(challengelimit)) {
             console.log("I'm here");
             newstr = challengelimit.slice(0, -1);
             document.getElementById("challengelimit").value = newstr;
-          } 
+          }
         },
 
         buttonstatus() {
@@ -908,13 +894,11 @@
           let challengelimit = document.getElementById("challengelimit").value;
           // let deadline = document.getElementById("deadline").value;
           console.log(challengelimit);
-          if (
-            isNaN(challengelimit)
-          ) {
+          if (isNaN(challengelimit)) {
             console.log("I'm here");
             newstr = challengelimit.slice(0, -1);
             document.getElementById("challengelimit").value = newstr;
-          } 
+          }
         },
 
         // Alerts
