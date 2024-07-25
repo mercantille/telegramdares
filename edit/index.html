@@ -450,8 +450,11 @@
       </div>
       <div class="block" style="padding: 12px 20px 0px !important; margin-bottom: 0px !important;"> 
       <span class="header" ">Multiplier</span>
-          <select id="multiplier">
-             <option value="1.5">1.5x</option>
+          <select id="multiplier" 
+          onchange="DemoApp.buttonstatus()" 
+          onclick="DemoApp.buttonstatus()" 
+          >
+            <option value="1.5">1.5x</option>
             <option value="2" selected>2x</option>
             <option value="3">3x</option>
             <option value="4">4x</option>
@@ -486,74 +489,9 @@
       <div id="hint" class="cafe-text-field-hint">
         Maximum total sum of challenges before every new challenge requires a confirm
       </div>
-      
-
-      <!-- <div class="block">
-        <span class="header">Description</span>
-        <textarea
-          name="description"
-          rows="2"
-          type="text"
-          class="wide"
-          id="description"
-          placeholder="Describe in more detail"
-          onkeyup="DemoApp.buttonstatus()"
-          onkeydown="DemoApp.buttonstatus()"
-          onchange="DemoApp.buttonstatus()"
-          onpaste="DemoApp.buttonstatus()"
-        ></textarea>
-      </div> -->
-      <!-- <div id="peer_wrap" style="display: none">
-        <img id="peer_photo" class="chat_img" src="" />
-        <span id="peer_name"></span>
-      </div> -->
-      <!-- <div class="sect_row">
-        Header:
-        <select id="header_color_sel">
-          <option value="bg_color" selected>bg_color</option>
-          <option value="secondary_bg_color">secondary_bg_color</option>
-        </select>
-      </div> -->
-      <!-- <div class="block">
-        Deadline
-        <input
-          class="date"
-          type="date"
-          placeholder="Input text in regular input..."
-          id="deadline"
-          onkeyup="DemoApp.buttonstatus()"
-          onkeydown="DemoApp.buttonstatus()"
-          onchange="DemoApp.buttonstatus()"
-          onpaste="DemoApp.buttonstatus()"
-        />
-      </div> -->
+  
       <div class="row">
-        <!-- <div class="block">
-          <span class="header">Maximum total challenges</span>
-          <input
-            type="number"
-            class="small"
-            placeholder="Maximum total challenges"
-            id="challengelimit"
-            onkeyup="DemoApp.buttonstatus()"
-            onkeydown="DemoApp.buttonstatus()"
-            onchange="DemoApp.buttonstatus()"
-            onpaste="DemoApp.buttonstatus()"
-          />
-        </div> -->
-        <!-- <div class="block">
-          <span class="header">Multiplier</span>
-          <select id="multiplier">
-            <option value="2" selected>2x</option>
-            <option value="3">3x</option>
-            <option value="4">4x</option>
-            <option value="5">5x</option>
-            <option value="6">6x</option>
-            <option value="8">8x</option>
-            <option value="10">10x</option>
         
-          </select>
-        </div> -->
       </div>
       <button
         id="main_btn"
@@ -567,207 +505,8 @@
         Send «Hello, World!» with inline webview button
       </button> -->
     </section>
-    <!-- <section> -->
-    <!-- <div id="btn_status" class="hint" style="display: none"></div>
-      <p>Test links:</p>
-      <ul>
-        <li>
-          <a id="regular_link" href="">Regular link #2</a> (opens inside
-          webview)
-        </li>
-        <li>
-          <a href="https://telegram.org/" target="_blank"
-            >target="_blank" link</a
-          >
-          (opens outside webview)
-        </li>
-        <li>
-          <a href="javascript:window.open('https://telegram.org/');"
-            >window.open() link</a
-          >
-          (opens outside webview)
-        </li>
-        <li>
-          <a href="https://t.me/like">LikeBot t.me link</a> (opens inside
-          Telegram app)
-        </li>
-        <li>
-          <a
-            href="javascript:Telegram.WebApp.openTelegramLink('https://t.me/vote');"
-            >web_app_open_tg_link()</a
-          >
-          (opens inside Telegram app)
-        </li>
-        <li>a
-          <a href="javascript:Telegram.WebApp.openLink('https://google.com/');"
-            >web_app_open_link()</a
-          >
-          (opens outside webview)
-        </li>
-        <li>
-          <a href="tg://resolve?domain=vote">VoteBot tg:// link</a> (does not
-          open)
-        </li>
-        <li>
-          <a
-            href="javascript:Telegram.WebApp.openLink('https://telegra.ph/api',{try_instant_view:true});"
-            >web_app_open_link({try_instant_view:true})</a
-          >
-          (opens IV inside Telegram app)
-        </li>
-      </ul>
-      <p>Test permissions:</p> -->
-    <!-- <ul>
-        <li>
-          <a href="javascript:;" onclick="return DemoApp.requestLocation(this);"
-            >Request Location</a
-          >
-          <span></span>
-        </li>
-        <li>
-          <a href="javascript:;" onclick="return DemoApp.requestVideo(this);"
-            >Request Video</a
-          >
-          <span></span>
-        </li>
-        <li>
-          <a href="javascript:;" onclick="return DemoApp.requestAudio(this);"
-            >Request Audio</a
-          >
-          <span></span>
-        </li>
-        <li>
-          <a
-            href="javascript:;"
-            onclick="return DemoApp.requestAudioVideo(this);"
-            >Request Audio+Video</a
-          >
-          <span></span>
-        </li>
-        <li>
-          <a
-            href="javascript:;"
-            onclick="return DemoApp.testClipboard(this);"
-            id="clipboard_test"
-            >Read from clipboard</a
-          >
-          <span></span>
-        </li>
-      </ul> -->
-    <!-- <p>Test alerts:</p> -->
-    <!-- <div class="columns"> -->
-    <!-- <ul>
-          <li><a href="javascript:;" onclick="alert('Hello!');">alert</a></li>
-          <li>
-            <a href="javascript:;" onclick="confirm('Are you sure?');"
-              >confirm</a
-            >
-          </li>
-          <li>
-            <a href="javascript:;" onclick="prompt('How old are you?');"
-              >prompt</a
-            >
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a href="javascript:;" onclick="DemoApp.showAlert('Hello!');"
-              >showAlert</a
-            >
-          </li>
-          <li>
-            <a
-              href="javascript:;"
-              onclick="DemoApp.showConfirm('Are you sure?');"
-              >showConfirm</a
-            >
-          </li>
-          <li>
-            <a href="javascript:;" onclick="DemoApp.requestWriteAccess();"
-              >requestWriteAccess</a
-            >
-          </li>
-          <li>
-            <a href="javascript:;" onclick="DemoApp.requestContact();"
-              >requestContact</a
-            >
-          </li>
-          <li>
-            <a href="javascript:;" onclick="DemoApp.showPopup();">showPopup</a>
-          </li>
-          <li>
-            <a href="javascript:;" onclick="DemoApp.showScanQrPopup();"
-              >showScanQrPopup</a
-            >
-          </li>
-          <li>
-            <a href="javascript:;" onclick="DemoApp.showScanQrPopup(true);"
-              >showScanQrPopup (links only)</a
-            >
-          </li>
-        </ul>
-      </div> -->
-    <!-- <p>Haptics:</p> -->
-    <!-- <ul>
-        <li>
-          Impact:
-          <a
-            href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('heavy');"
-            >heavy</a
-          >, &nbsp;
-          <a
-            href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('light');"
-            >light</a
-          >, &nbsp;
-          <a
-            href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('medium');"
-            >medium</a
-          >, &nbsp;
-          <a
-            href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('rigid');"
-            >rigid</a
-          >, &nbsp;
-          <a
-            href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('soft');"
-            >soft</a
-          ><br /><br />
-        </li>
-        <li>
-          Notification:
-          <a
-            href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('error');"
-            >error</a
-          >, &nbsp;
-          <a
-            href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('success');"
-            >success</a
-          >, &nbsp;
-          <a
-            href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('warning');"
-            >warning</a
-          ><br /><br />
-        </li>
-        <li>
-          Selection:
-          <a
-            href="javascript:Telegram.WebApp.HapticFeedback.selectionChanged();"
-            >changed</a
-          ><br /><br />
-        </li>
-      </ul> -->
-    <!-- <pre><code id="webview_data"></code></pre> -->
-    <!-- <div class="hint">
-        Data passed to webview.
-        <span id="webview_data_status" class="status_need"
-          >Checking hash...</span
-        >
-      </div> -->
-    <!-- <pre><code id="theme_data"></code></pre> -->
-    <!-- <div class="hint">Theme params</div> -->
-    <!-- <div class="hint">
-        Version: <span id="ver"></span>, platform: <span id="platform"></span>
-      </div> -->
-    <!-- </section> -->
+  
+    
     <div class="viewport-border"></div>
     <div class="viewport-stable_border"></div>
 
@@ -1066,6 +805,7 @@
               let params = {
                 method: "POST",
                 body: JSON.stringify({
+                  dare_id: dareID,
                   name:title,
                   description: description,
                   multiplier: multiplier,
