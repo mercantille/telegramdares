@@ -994,8 +994,12 @@
                 //   resp.data.dares[0].multiplier;
                 // document.getElementById("deadline").textContent =
                 //   resp.data.dares[0].creator.username;
-                document.getElementById("multiplier").textContent = 
-                resp.data.dares[0].maximum_bet
+                let maxbet = resp.data.dares[0].maximum_bet
+                let multiplier = resp.data.dares[0].multiplier
+                let date = resp.data.dares[0].deadline;
+                console.log(maxbet, multiplier, date);
+                // document.getElementById("multiplier").textContent = 
+                // resp.data.dares[0].maximum_bet
               } else {
                 resp = await response.json();
                 console.log(resp);
