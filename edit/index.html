@@ -764,6 +764,7 @@
         },
 
         async editDare() {
+          let dareID = window.Telegram.WebApp.initDataUnsafe.start_param;
           const title = document.getElementById("title").value;
           const description = document.getElementById("description").value;
           const deadline = document.getElementById("deadline").value;
