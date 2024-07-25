@@ -978,6 +978,9 @@
             .then(async function (response) {
               if (response.ok) {
                 resp = await response.json();
+                let maxbet = resp.data.dares[0].maximum_bet
+                let multiplier = resp.data.dares[0].multiplier
+                let date = resp.data.dares[0].completion_deadline;
                 console.log(dareID);
                 console.log(resp);
                 console.log(resp.data.dares);
@@ -990,13 +993,12 @@
                 //   resp.data.dares[0].description;
                 document.getElementById("description").textContent =
                   resp.data.dares[0].description;
-                // document.getElementById("multiplier").textContent =
-                //   resp.data.dares[0].multiplier;
+                document.getElementById("challengelimit").value =
+                  resp.data.dares[0].multiplier;
+                document.getElementById("multiplier").value = multiplier
                 // document.getElementById("deadline").textContent =
                 //   resp.data.dares[0].creator.username;
-                let maxbet = resp.data.dares[0].maximum_bet
-                let multiplier = resp.data.dares[0].multiplier
-                let date = resp.data.dares[0].deadline;
+                
                 console.log(maxbet, multiplier, date);
                 // document.getElementById("multiplier").textContent = 
                 // resp.data.dares[0].maximum_bet
