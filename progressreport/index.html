@@ -970,7 +970,7 @@
           // const deadline = document.getElementById("deadline").value;
           // const multiplier = document.getElementById("multiplier").value;
           const text = document.getElementById("amount").value;
-          const ontrack = document.getElementById("ontrack").value;
+          const ontrack = document.getElementById("ontrack").checked;
           // const challengelimit =
           //   document.getElementById("challengelimit").value;
           // const { id, first_name, last_name, username } =
@@ -1003,7 +1003,7 @@
               body: JSON.stringify({
                 dare_id: startParam,
                 text: text,
-                ontrack: ontrack,
+                is_on_track: ontrack,
                 init_data: init_data,
                 //  name: title,
                 // description: description,
